@@ -1,9 +1,14 @@
+header {
+  height: 75px;
+  background-color: #FAFAFA;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: red;
+  background-color: white;
 }
 
 /*# sourceMappingURL=app.css.map */
