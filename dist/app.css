@@ -1,6 +1,38 @@
 header {
-  height: 75px;
-  background-color: #FAFAFA;
+  background-color: #f2f2f2;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  align-items: center;
+}
+
+.nav__menu {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: #25291C;
+  font-family: "Comfortaa", cursive;
+  font-size: #f2f2f2;
+  text-align: center;
+}
+
+.menu__link:hover {
+  color: #004EA8;
+}
+
+.nav__image {
+  width: 202px;
+  margin-left: 10%;
 }
 
 * {

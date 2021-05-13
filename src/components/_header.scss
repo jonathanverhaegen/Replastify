@@ -1,7 +1,42 @@
-@use '../colors';
+@import '../colors';
+@import '../fonts';
 
 header{
-    height:75px;
-    background-color: colors.$cultured;
+    background-color: $header;
+    
+}
 
+nav{
+    display:grid;
+    grid-template-columns: 40% 60%;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    height:100px;
+    align-items: center;
+    
+}
+
+.nav__menu{
+    display:flex;
+    flex-direction:row;
+    gap:50px;
+    
+}
+
+.menu__link{
+    text-decoration: none;
+    color: $pinetree;
+    font-family: $comfortaa;
+    font-size: $header;
+    text-align:center;
+}
+
+.menu__link:hover{
+    color: $sapphire;
+}
+
+.nav__image{
+    width:202px;
+    margin-left:10%;
 }
