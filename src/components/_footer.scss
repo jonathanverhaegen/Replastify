@@ -1,0 +1,63 @@
+@import '../colors';
+@import '../fonts';
+
+footer{
+    height:100%;
+    background-color: $pinetree;
+}
+
+.footer__header{
+    display:flex;
+    gap:40%;
+    align-items: center;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:50px;
+    justify-content: center;
+}
+
+.footer__logo{
+    width:352px;
+}
+
+.footer__text{
+    font-family: $comfortaa;
+    font-size: $headerSize;
+    color: $silver;
+}
+
+.footer__menu{
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.footer__link{
+    text-decoration: none;
+    color: $white;
+    font-family: $comfortaa;
+    text-align: center;
+    font-size:$footerSize;
+    
+}
+
+.copy{
+    border-top: $silver solid 1px;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.copy p{
+    color: white;
+    text-align:center;
+    font-family: $comfortaa;
+}

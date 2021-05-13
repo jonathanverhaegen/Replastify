@@ -16,7 +16,7 @@
 
 <h1>replastify</h1>
 
-
+<?php include_once("footer.inc.php") ?>
     
 </body>
 </html>

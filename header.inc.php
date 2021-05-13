@@ -28,12 +28,12 @@
 
         <div class="nav__menu" >
             
-                <a class="menu__link"  href="">Home</a>
-                <a class="menu__link"  href="">3D modellen</a>
-                <a class="menu__link"  href="">Filament</a>
-                <a class="menu__link"  href="">Community</a>
-                <a class="menu__link"  href="">Verkoperspaneel</a>
-                <a class="menu__link"  href="">Profiel</a>
+                <a class="menu__link"  href="home.php">Home</a>
+                <a class="menu__link"  href="3dmodellen.php">3D modellen</a>
+                <a class="menu__link"  href="webshop.php">Filament</a>
+                <a class="menu__link"  href="community.php">Community</a>
+                <a class="menu__link"  href="verkoperspaneel.php">Verkoperspaneel</a>
+                <a class="menu__link"  href="profiel.php">Profiel</a>
             
         </div>
 

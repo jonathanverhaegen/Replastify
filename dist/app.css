@@ -22,7 +22,7 @@ nav {
   text-decoration: none;
   color: #25291C;
   font-family: "Comfortaa", cursive;
-  font-size: #f2f2f2;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -33,6 +33,66 @@ nav {
 .nav__image {
   width: 202px;
   margin-left: 10%;
+}
+
+footer {
+  height: 100%;
+  background-color: #25291C;
+}
+
+.footer__header {
+  display: flex;
+  gap: 40%;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  justify-content: center;
+}
+
+.footer__logo {
+  width: 352px;
+}
+
+.footer__text {
+  font-family: "Comfortaa", cursive;
+  font-size: 18px;
+  color: #CCCCCC;
+}
+
+.footer__menu {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: white;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+  font-size: 16px;
+}
+
+.copy {
+  border-top: #CCCCCC solid 1px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.copy p {
+  color: white;
+  text-align: center;
+  font-family: "Comfortaa", cursive;
 }
 
 * {
