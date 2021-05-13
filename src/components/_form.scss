@@ -1,0 +1,63 @@
+@import '../colors';
+@import '../fonts';
+
+.form__container{
+    background-color: $background;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    padding:5%;
+    margin-top:50px;
+    margin-bottom:100px;
+    border-radius:10px;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+}
+
+.form__label{
+    font-family: $comfortaa;
+    color: $sapphire;
+    font-size: 16px;
+    margin-bottom:10px;
+}
+
+.form__input{
+    border:none;
+    font-size: 16px;
+    color: $pinetree;
+    border-radius: 10px;
+    margin-bottom:20px;
+    height:33px;
+    padding-left:10px;
+    font-family: $mont;
+}
+
+.form__btn{
+    display:flex;
+    justify-content: center;
+}
+
+.form__btns{
+    display:flex;
+    justify-content: center;
+    gap:50px;
+}
+
+.form__link{
+    text-align: center;
+    font-family: $comfortaa;
+    color:$pinetree;
+    margin-top:50px;
+}
+
+.link--password{
+ margin-top:5px;
+ 
+}
+
+.signup__btns{
+    display:flex;
+}

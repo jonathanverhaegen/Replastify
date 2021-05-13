@@ -1,0 +1,144 @@
+@import '../colors';
+@import '../fonts';
+
+.landing__title{
+    width:85%;
+    margin-left:auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+    margin-top:150px;
+    margin-bottom:350px;
+}
+
+.landing__title__text{
+    font-family: $mont;
+    font-size: 25px;
+    color: $pinetree
+}
+
+.landing__title__img{
+    width:500px;
+}
+
+.landing__tutorial__container{
+    width:100%;
+    background-color: $background;
+    padding-bottom:250px;
+}
+
+
+
+.landing__tutorial{
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    margin-top:50px;
+}
+
+.tutorial{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.tutorial__number{
+    font-family: $comfortaa;
+    font-size:30px;
+    text-align:center;
+    color: $pinetree;
+}
+
+.tutorial__img{
+    width:250px;
+}
+
+.tutorial__text{
+    font-family: $comfortaa;
+    color:$pinetree;
+    font-size: 20px;
+}
+
+
+
+.landing__database__title{
+    font-family: $comfortaa;
+    color: $sapphire;
+    font-size:45px;
+    text-align:center;
+}
+
+.landing__database{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top:50px;
+    justify-content: center;
+    align-items: center;
+    gap:75px;
+}
+
+.landing__database__img{
+    width:500px;
+}
+
+.landing__database__text{
+    font-family: $mont;
+    color: $pinetree;
+    font-size:25px;
+    padding-bottom:25px;
+}
+
+.landing__webshop__container{
+    background-color:$background;
+    padding-bottom:250px;
+}
+
+.landing__webshop{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top:100px;
+    gap:75px;
+}
+
+.landing__webshop__img{
+    width:100%;
+}
+
+.landing__webshop__title{
+    margin-top: 20px;
+}
+
+.landing__webshop__price{
+    margin-top:75px;
+    padding-bottom:75px;
+    color:$pinetree;
+    font-family: $mont;
+    font-size: 25px;
+}
+
+.landing__community{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    
+    justify-content: center;
+    align-items: center;
+    gap:75px;
+    padding-bottom:150px;
+}
+

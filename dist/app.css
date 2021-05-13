@@ -35,6 +35,29 @@ nav {
   margin-left: 10%;
 }
 
+.btn {
+  background-color: #004EA8;
+  color: white;
+  text-decoration: none;
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+}
+
+.btn--landing {
+  margin-top: 20px;
+}
+
+.btn--form {
+  border: none;
+  margin-top: 30px;
+}
+
+.btn--printer {
+  margin-top: 30px;
+}
+
 footer {
   height: 100%;
   background-color: #25291C;
@@ -90,9 +113,219 @@ footer {
 }
 
 .copy p {
-  color: white;
+  color: #CCCCCC;
   text-align: center;
   font-family: "Comfortaa", cursive;
+}
+
+.landing__title {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 150px;
+  margin-bottom: 350px;
+}
+
+.landing__title__text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  color: #25291C;
+}
+
+.landing__title__img {
+  width: 500px;
+}
+
+.landing__tutorial__container {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding-bottom: 250px;
+}
+
+.landing__tutorial {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.tutorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tutorial__number {
+  font-family: "Comfortaa", cursive;
+  font-size: 30px;
+  text-align: center;
+  color: #25291C;
+}
+
+.tutorial__img {
+  width: 250px;
+}
+
+.tutorial__text {
+  font-family: "Comfortaa", cursive;
+  color: #25291C;
+  font-size: 20px;
+}
+
+.landing__database__title {
+  font-family: "Comfortaa", cursive;
+  color: #004EA8;
+  font-size: 45px;
+  text-align: center;
+}
+
+.landing__database {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+}
+
+.landing__database__img {
+  width: 500px;
+}
+
+.landing__database__text {
+  font-family: "Montserrat", sans-serif;
+  color: #25291C;
+  font-size: 25px;
+  padding-bottom: 25px;
+}
+
+.landing__webshop__container {
+  background-color: #f5f5f5;
+  padding-bottom: 250px;
+}
+
+.landing__webshop {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 100px;
+  gap: 75px;
+}
+
+.landing__webshop__img {
+  width: 100%;
+}
+
+.landing__webshop__title {
+  margin-top: 20px;
+}
+
+.landing__webshop__price {
+  margin-top: 75px;
+  padding-bottom: 75px;
+  color: #25291C;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+}
+
+.landing__community {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  padding-bottom: 150px;
+}
+
+.form__container {
+  background-color: #f5f5f5;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  font-family: "Comfortaa", cursive;
+  color: #004EA8;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.form__input {
+  border: none;
+  font-size: 16px;
+  color: #25291C;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  height: 33px;
+  padding-left: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form__btn {
+  display: flex;
+  justify-content: center;
+}
+
+.form__btns {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.form__link {
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+  color: #25291C;
+  margin-top: 50px;
+}
+
+.link--password {
+  margin-top: 5px;
+}
+
+.signup__btns {
+  display: flex;
+}
+
+.title {
+  font-family: "Comfortaa", cursive;
+  color: #004EA8;
+  font-size: 45px;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.subtitle {
+  font-family: "Comfortaa", cursive;
+  color: #004EA8;
+  font-size: 30px;
 }
 
 * {
