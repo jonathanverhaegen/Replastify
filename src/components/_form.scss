@@ -35,6 +35,10 @@ form{
     font-family: $mont;
 }
 
+.form__input--post{
+    margin-bottom:0px;
+}
+
 .form__btn{
     display:flex;
     justify-content: center;

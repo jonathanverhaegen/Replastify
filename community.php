@@ -20,7 +20,7 @@
 <div class="community__header_container">
     <div class="community__header">
         <img class="community_header__image" src="images/skull.jpg" alt="avatar">
-        <input class="form__input" type="text" placeholder="type somthing">
+        <input class="form__input form__input--post" type="text" placeholder="type somthing">
     </div>
 </div>
 
@@ -53,15 +53,14 @@
             </li>
         </ul>
 
-        
+
+    </div>
+    <div class="comment__field__container">
         <div class="comment__field">
             <img class="comment__field__img" src="images/skull.jpg" alt="">
-            <input class="comment__input" type="text" placeholder="Type a comment">
+            <input class="form__input form__input--post" type="text" placeholder="Type a comment">
             <a class="btn" href="">Plaatsen</a>
         </div>
-        
-        
-
     </div>
 </div>
 

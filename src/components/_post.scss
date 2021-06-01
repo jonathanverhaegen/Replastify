@@ -74,6 +74,13 @@
     font-family: $comfortaa;
 }
 
+.comment__field__container{
+    background-color: $dimgray;
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:10px;
+}
 
 .comment__field{
     display:flex;
@@ -81,11 +88,10 @@
     margin-left:auto;
     margin-right:auto;
     align-items: center;
-    gap:10px;
+    gap:20px;
     justify-content:center;
-    border-top: 1px solid $pinetree;
-    margin-top:20px;
-    padding-top:10px;
+    
+    
 }
 
 .comment__field__img{
