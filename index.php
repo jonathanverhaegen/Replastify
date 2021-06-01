@@ -25,7 +25,7 @@
 </div>
 
 <div class="landing__tutorial__container">
-    <h1 class="title">Hoe werkt het?</h1>
+    <h1 class="title title--landing">Hoe werkt het?</h1>
     <div class="landing__tutorial">
 
         <div class="tutorial">
@@ -51,7 +51,7 @@
 </div>
 
 <div class="landing__database__container">
-    <h1 class="title">3D-database</h1>
+    <h1 class="title title--landing">3D-database</h1>
     <div class="landing__database">
         <img class="landing__database__img" src="images/database.png" alt="database">
         <div>
@@ -63,7 +63,7 @@
 </div>
 
 <div class="landing__webshop__container">
-    <h1 class="title">Bestel je gerecycleerd filament</h1>
+    <h1 class="title title--landing">Bestel je gerecycleerd filament</h1>
     <div class="landing__webshop">
         <img class="landing__webshop__img" src="images/spool+box.png" alt="spool+box">
         <div class="landing__webshop__info">
@@ -76,7 +76,7 @@
 </div>
 
 <div class="landing__community__container">
-    <h1 class="title">Community</h1>
+    <h1 class="title title--landing">Community</h1>
     <div class="landing__community">
         <div>
             <p class="landing__database__text">Plastify biedt een maker community. Heb je een vraag over je model of over 3D-printen in het algemeen?</p>

@@ -29,74 +29,11 @@
 
 <div class="database">
 
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
-        </div>
-        
-    </div>
-
-    <div class="model">
-        <p class="model__name">Naam object</p>
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="model__link">
-            <a class="btn" href="">Bekijk</a>
+    <div class="item">
+        <p class="item__name">Naam object</p>
+        <img class="item__img" src="images/skull.jpg" alt="3dmodel">
+        <div class="item__link">
+            <a class="btn" href="model.php">Bekijk</a>
         </div>
         
     </div>

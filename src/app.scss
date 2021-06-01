@@ -4,6 +4,7 @@
 @import 'components/landing';
 @import 'components/form';
 @import 'components/search';
+@import 'components/item';
 @import 'components/model';
 @import './colors';
 @import './fonts';
@@ -21,4 +22,13 @@ body{
     width:80%;
     margin-left:auto;
     margin-right:auto;
+}
+
+.back{
+    width:5%;
+    margin-top:20px;
+}
+
+.back__img{
+    width:100%;
 }

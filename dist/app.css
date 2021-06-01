@@ -1,5 +1,6 @@
 header {
   background-color: #f2f2f2;
+  margin-bottom: 50px;
 }
 
 nav {
@@ -327,6 +328,31 @@ form {
   width: 100%;
 }
 
+.form--model {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__container--model {
+  width: 80%;
+}
+
+.form__file {
+  border: none;
+  font-size: 16px;
+  color: #25291C;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  height: 33px;
+  padding-left: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form__label--model {
+  color: #25291C;
+}
+
 .searchbar {
   background-color: #f5f5f5;
   display: grid;
@@ -358,28 +384,91 @@ form {
   row-gap: 20px;
 }
 
-.model {
+.item {
   background-color: #f5f5f5;
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;
 }
 
-.model__name {
+.item__name {
   color: #004EA8;
   font-family: "Comfortaa", cursive;
   padding-left: 10px;
 }
 
-.model__img {
+.item__img {
   width: 100%;
   object-fit: cover;
   justify-self: center;
 }
 
-.model__link {
+.item__link {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.model {
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.model__name {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.model__owner {
+  color: #25291C;
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.model__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 10px;
+}
+
+.model__img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.model__description {
+  font-family: "Montserrat", sans-serif;
+  color: #25291C;
+}
+
+.model__extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 10px;
+}
+
+.model__preview {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.model__preview__img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.model__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50%;
 }
 
 .title {
@@ -387,13 +476,16 @@ form {
   color: #004EA8;
   font-size: 45px;
   text-align: center;
-  padding-top: 100px;
 }
 
 .subtitle {
   font-family: "Comfortaa", cursive;
   color: #004EA8;
   font-size: 30px;
+}
+
+.title--landing {
+  margin-top: 100px;
 }
 
 * {
@@ -408,6 +500,15 @@ body {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.back {
+  width: 5%;
+  margin-top: 20px;
+}
+
+.back__img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */

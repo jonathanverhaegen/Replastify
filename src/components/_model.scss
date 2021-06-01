@@ -1,36 +1,67 @@
 @import '../colors';
 @import '../fonts';
 
-.database{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap:10px;
-    row-gap: 20px;
-}
-
 .model{
     background-color: $background;
-    // width:25%;
-    display:grid;
-    grid-template-rows: 1fr 4fr 1fr;
-    
+    padding-top:10px;
+    margin-top:50px;
+    margin-bottom:50px;
 }
-
 
 .model__name{
     color: $sapphire;
-    font-family:  $comfortaa;
+    font-family: $comfortaa;
+    font-size: $plaintext;
     padding-left:10px;
+}
+
+.model__owner{
+    color: $pinetree;
+    font-family: $comfortaa;
+    font-size: $plaintext;
+    padding-left:10px;
+}
+
+.model__info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    padding:10px;
 }
 
 .model__img{
     width:100%;
-    object-fit:cover;
-    justify-self: center;
+    object-fit: cover;
+    
 }
 
-.model__link{
+.model__description{
+    font-family: $mont;
+    color: $pinetree;
+}
+
+.model__extra{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    padding:10px;
+}
+
+.model__preview{
+    display:grid;
+    gap:10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.model__preview__img{
+    width:100%;
+    object-fit: cover;
+}
+
+.model__btns{
     display:flex;
     justify-content: center;
     align-items: center;
+    gap:50%;
 }
+
