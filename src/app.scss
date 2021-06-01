@@ -9,6 +9,7 @@
 @import 'components/window';
 @import 'components/shop';
 @import 'components/mand';
+@import 'components/post';
 @import './colors';
 @import './fonts';
 @import './titles';
@@ -35,4 +36,29 @@ body{
 
 .back__img{
     width:20%;
+}
+
+.community__header_container{
+    background-color:$background;
+    padding:40px;
+}
+
+.community__header{
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    padding:10px;
+    align-items: center;
+    background-color: $silver;
+    border-radius: 10px;
+}
+
+.community_header__image{
+    width:75px;
+    height:75px;
+    border-radius: 200px;
+    object-fit: cover;
+    
 }

@@ -1,0 +1,143 @@
+@import '../colors';
+@import '../fonts';
+
+
+.post__container{
+    margin-top:50px;
+    background-color: $background;
+    padding-top:50px;
+    
+}
+
+.post{
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    padding:20px;
+    background-color:white;
+    
+}
+
+.post__user{
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
+
+.post__avatar{
+    width:50px;
+    height:50px;
+    border-radius: 200px;
+    object-fit: cover;
+}
+
+.post__username{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $plaintext;
+}
+
+.post__description{
+    color: $pinetree;
+    font-family: $mont;
+    font-size: $plaintext;
+    margin-top:20px;
+}
+
+.post__image__holder{
+    display:flex;
+    justify-content:center;
+}
+
+.post__image{
+    width:100%;
+    height:300px;
+    object-fit: cover;
+    margin-top:20px;
+    
+}
+
+.comments__btn{
+    display:flex;
+    gap:5px;
+    margin-top:10px;
+    align-items: center;
+}
+
+.comment__icon{
+    width:20px;
+    height:20px;
+}
+
+.comment__number{
+    color: $pinetree;
+    font-family: $comfortaa;
+}
+
+
+.comment__field{
+    display:flex;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    align-items: center;
+    gap:10px;
+    justify-content:center;
+    border-top: 1px solid $pinetree;
+    margin-top:20px;
+    padding-top:10px;
+}
+
+.comment__field__img{
+    width:50px;
+    height:50px;
+    border-radius:70%;
+}
+
+.comments{
+    margin-top:10px;
+}
+
+.comment{
+    display:grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 5px;
+    background-color: $background;
+    padding:10px;
+    border-radius: 10px;
+    margin-bottom:10px;
+}
+
+.comment__avatar{
+    width:50px;
+    height:50px;
+    border-radius:70%;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.comment__username{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    font-family: $comfortaa;
+    color: $pinetree;
+}
+
+.comment__text{
+    grid-column: 1 / span 3;
+    grid-row-start: 2;
+    margin-top:5px;
+    font-family: $mont;
+    color: $pinetree;
+}
+
+.comment__input{
+    border:none;
+    font-size: 16px;
+    color: $pinetree;
+    border-radius: 10px;
+    height:33px;
+    font-family: $mont;
+}
