@@ -43,6 +43,7 @@ nav {
   font-size: 16px;
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
+  border: none;
 }
 
 .btn--landing {
@@ -314,6 +315,73 @@ form {
   display: flex;
 }
 
+.form--search {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.form__input--search {
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.searchbar {
+  background-color: #f5f5f5;
+  display: grid;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.searchbar__form {
+  grid-column-start: 2;
+  justify-self: center;
+}
+
+.searchbar__link {
+  color: #004EA8;
+  text-decoration: none;
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+  grid-column-start: 3;
+}
+
+.database {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  row-gap: 20px;
+}
+
+.model {
+  background-color: #f5f5f5;
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+.model__name {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  padding-left: 10px;
+}
+
+.model__img {
+  width: 100%;
+  object-fit: cover;
+  justify-self: center;
+}
+
+.model__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .title {
   font-family: "Comfortaa", cursive;
   color: #004EA8;
@@ -334,6 +402,12 @@ form {
 
 body {
   background-color: white;
+}
+
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=app.css.map */

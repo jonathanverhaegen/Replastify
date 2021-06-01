@@ -61,3 +61,15 @@ form{
 .signup__btns{
     display:flex;
 }
+
+.form--search{
+    display:flex;
+    flex-direction: row;
+    gap:10px;
+    align-items: center;
+}
+
+.form__input--search{
+    margin-bottom:0px;
+    width:100%;
+}

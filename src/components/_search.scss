@@ -1,0 +1,27 @@
+@import '../colors';
+@import '../fonts';
+
+.searchbar{
+    background-color: $background;
+    display:grid;
+    align-items: center;
+    margin-top:10px;
+    margin-bottom:50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.searchbar__form{
+    grid-column-start: 2;
+    justify-self: center;
+}
+
+.searchbar__link{
+    color: $sapphire;
+    text-decoration:none;
+    font-family: $comfortaa;
+    font-size: $plaintext;
+    grid-column-start: 3;
+}
