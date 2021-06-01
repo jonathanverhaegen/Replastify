@@ -20,43 +20,37 @@
 <div class="shop">
     <div class="body">
         <div class="head">  
-            <a href="database.php"><img class="back__img" src="images/back.svg" alt=""></a>
+            <a href="bezorgadres.php"><img class="back__img" src="images/back.svg" alt=""></a>
         </div> 
         <div class="body__titles">
-            <p class="body__title body__title--active">Bezorgadres</p>
-            <p class="body__title">Bezorgmethode</p>
+            <p class="body__title ">Bezorgadres</p>
+            <p class="body__title body__title--active">Bezorgmethode</p>
             <p class="body__title">Betalingsmethode</p>
         </div>
 
         <div class="form__container form__container--webshop">
             <form class="form " action="">
 
-                <p class="form__title subtitle">Bezorgadress</p>
+                <p class="form__title subtitle">Bezorgmethode</p>
                 
-                <input class="form__input form__input--webshop" type="text"  name="firstname" placeholder="Voornaam">
-
-                
-                <input class="form__input form__input--webshop" type="text"  name="lastname" placeholder="Achternaam">
-
-                
-                <input class="form__input form__input--webshop" type="text"  name="email" placeholder="Email">
-
                 <div class="form__double">
-                    <input class="form__input form__input--webshop" type="text"  name="street" placeholder="Straat">
-                    <input class="form__input form__input--webshop form__input--number" type="text"  name="number" placeholder="Nummer">
+                    <input type="radio" name="bezorgmethode" value="B-post"><label class="form__label form__label--radio" >B-post</label>
                 </div>
 
                 <div class="form__double">
-                    <input class="form__input form__input--webshop" type="text"  name="city" placeholder="Stad">
-                    <input class="form__input form__input--webshop form__input--number" type="text"  name="postalcode" placeholder="Postcode">
+                    <input type="radio" name="bezorgmethode" value="DHL"><label class="form__label form__label--radio" >DHL</label>
                 </div>
 
-                <input class="form__input form__input--webshop" type="text"  name="email" placeholder="België">
+                <div class="form__double">
+                    <input type="radio" name="bezorgmethode" value="post.nl"><label class="form__label form__label--radio" >Post.nl</label>
+                </div>
+                
+                
             </form>
         </div>
 
         <div class="webshop__btns">
-            <a class="btn webshop__btn" href="bezorgmethode.php">Bezorgmethode</a>
+            <a class="btn webshop__btn" href="betaalmethode.php">Betaalmethode</a>
         </div>
 
     </div>

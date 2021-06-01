@@ -28,7 +28,7 @@
     <div class="window__info">
         <p class="window__name">Plastify 3D-print filament</p>
         <p class="window__price">€25,00</p>
-        <div><a class="btn" href="">Koop</a></div>
+        <div><a class="btn" href="bezorgadres.php">Koop</a></div>
         
     </div>
 </div>

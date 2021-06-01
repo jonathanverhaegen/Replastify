@@ -383,6 +383,11 @@ form {
   width: 20%;
 }
 
+.form__label--radio {
+  color: #25291C;
+  font-family: "Montserrat", sans-serif;
+}
+
 .searchbar {
   background-color: #f5f5f5;
   display: grid;
@@ -657,6 +662,7 @@ form {
   color: #25291C;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
 }
 
 .mand__kost__number, .mand__total__number {
