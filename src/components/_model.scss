@@ -3,30 +3,32 @@
 
 .model{
     background-color: $background;
-    padding-top:10px;
+    padding-top:20px;
     margin-top:50px;
     margin-bottom:50px;
+    border-radius: 10px;
 }
 
 .model__name{
     color: $sapphire;
     font-family: $comfortaa;
-    font-size: $plaintext;
-    padding-left:10px;
+    font-size: $bigger;
+    padding-left:20px;
 }
 
 .model__owner{
     color: $pinetree;
     font-family: $comfortaa;
     font-size: $plaintext;
-    padding-left:10px;
+    padding-left:20px;
+    margin-top:5px;
 }
 
 .model__info{
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:20px;
-    padding:10px;
+    padding:20px;
 }
 
 .model__img{

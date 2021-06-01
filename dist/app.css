@@ -335,7 +335,7 @@ form {
 }
 
 .form__container--model {
-  width: 80%;
+  width: 100%;
 }
 
 .form__file {
@@ -349,8 +349,38 @@ form {
   font-family: "Montserrat", sans-serif;
 }
 
+.form__title {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 .form__label--model {
   color: #25291C;
+}
+
+.form__double {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.form--webshop {
+  width: 80%;
+}
+
+.form__container--webshop {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.form__input--webshop {
+  width: 50%;
+}
+
+.form__input--number {
+  width: 20%;
 }
 
 .searchbar {
@@ -394,6 +424,8 @@ form {
   color: #004EA8;
   font-family: "Comfortaa", cursive;
   padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .item__img {
@@ -410,30 +442,32 @@ form {
 
 .model {
   background-color: #f5f5f5;
-  padding-top: 10px;
+  padding-top: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
+  border-radius: 10px;
 }
 
 .model__name {
   color: #004EA8;
   font-family: "Comfortaa", cursive;
-  font-size: 16px;
-  padding-left: 10px;
+  font-size: 20px;
+  padding-left: 20px;
 }
 
 .model__owner {
   color: #25291C;
   font-family: "Comfortaa", cursive;
   font-size: 16px;
-  padding-left: 10px;
+  padding-left: 20px;
+  margin-top: 5px;
 }
 
 .model__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .model__img {
@@ -471,6 +505,168 @@ form {
   gap: 50%;
 }
 
+.window {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 80px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.window__img {
+  width: 100%;
+}
+
+.window__info {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 40px;
+}
+
+.window__name {
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+  color: #004EA8;
+}
+
+.window__price {
+  font-family: "Montserrat", sans-serif;
+  color: #25291C;
+  font-size: 16px;
+}
+
+.shop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: -50px;
+  margin-bottom: 100px;
+}
+
+.body {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+.body__titles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+}
+
+.body__title {
+  color: #CCCCCC;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+}
+
+.body__title--active {
+  color: #004EA8;
+}
+
+.webshop__btns {
+  margin-top: 20px;
+  display: grid;
+}
+
+.webshop__btn {
+  justify-self: end;
+}
+
+.mand {
+  background-color: #f5f5f5;
+  padding-top: 100px;
+  padding-left: 20px;
+}
+
+.mand__title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mand__name {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+}
+
+.mand__price {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+  justify-self: center;
+}
+
+.mand__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 50px;
+}
+
+.mand__image {
+  width: 100%;
+  grid-row: 1/span 3;
+}
+
+.mand__product {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+}
+
+.mand__aantal {
+  grid-column-start: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mand__aantal__text {
+  color: #25291C;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.mand__number {
+  width: 10%;
+  border-radius: 5px;
+}
+
+.mand__link {
+  color: #25291C;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.mand__extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 20px;
+  border-top: 1px solid #25291C;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mand__kost, .mand__total {
+  color: #25291C;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mand__kost__number, .mand__total__number {
+  color: #004EA8;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  justify-content: end;
+  text-align: right;
+}
+
 .title {
   font-family: "Comfortaa", cursive;
   color: #004EA8;
@@ -502,13 +698,14 @@ body {
   margin-right: auto;
 }
 
-.back {
-  width: 5%;
-  margin-top: 20px;
+.head {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
 }
 
 .back__img {
-  width: 100%;
+  width: 20%;
 }
 
 /*# sourceMappingURL=app.css.map */

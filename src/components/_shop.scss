@@ -1,0 +1,42 @@
+@import '../colors';
+@import '../fonts';
+
+.shop{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top:-50px;
+    margin-bottom:100px;
+}
+.body{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:40px;
+}
+
+.body__titles{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top:30px;
+}
+
+.body__title{
+    color:$silver;
+    font-family: $comfortaa;
+    font-size: $bigger;
+}
+
+.body__title--active{
+    color: $sapphire;
+}
+
+.webshop__btns{
+    margin-top:20px;
+    display:grid;
+    
+    
+}
+
+.webshop__btn{
+    justify-self: end;
+}

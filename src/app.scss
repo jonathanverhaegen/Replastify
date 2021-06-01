@@ -6,6 +6,9 @@
 @import 'components/search';
 @import 'components/item';
 @import 'components/model';
+@import 'components/window';
+@import 'components/shop';
+@import 'components/mand';
 @import './colors';
 @import './fonts';
 @import './titles';
@@ -24,11 +27,12 @@ body{
     margin-right:auto;
 }
 
-.back{
-    width:5%;
-    margin-top:20px;
+.head{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
 }
 
 .back__img{
-    width:100%;
+    width:20%;
 }

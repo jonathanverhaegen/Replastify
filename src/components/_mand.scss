@@ -1,0 +1,94 @@
+@import '../colors';
+@import '../fonts';
+
+
+.mand{
+    background-color: $background;
+    padding-top:100px;
+    padding-left:20px;
+}
+
+.mand__title{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.mand__name{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $bigger;
+}
+
+.mand__price{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $bigger;
+    justify-self: center;
+}
+
+.mand__body{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top:50px;
+}
+
+.mand__image{
+    width:100%;
+    grid-row: 1 / span 3;
+}
+
+.mand__product{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $bigger;
+}
+
+.mand__aantal{
+    grid-column-start: 2;
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+.mand__aantal__text{
+    color: $pinetree;
+    font-family: $mont;
+    font-size: $plaintext;
+    
+}
+
+.mand__number{
+    width:10%;
+    border-radius: 5px;
+}
+
+.mand__link{
+    color:$pinetree;
+    font-family: $mont;
+    text-align: center;
+}
+
+.mand__extra{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top:20px;
+    border-top: 1px solid $pinetree;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.mand__kost, .mand__total{
+    color:$pinetree;
+    font-size: $bigger;
+    font-family: $mont;
+}
+
+.mand__kost__number, .mand__total__number{
+    color:$sapphire;
+    font-size: $bigger;
+    font-family: $mont;
+    justify-content: end;
+    text-align: right;
+}

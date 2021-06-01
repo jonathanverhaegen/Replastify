@@ -18,28 +18,21 @@
 <div class="container">
 
 
-<div class="searchbar">
+<h1 class="title">Bestel hier je gerecycleerd petfilament</h1>
 
-    <form class="searchbar__form form--search" action="" method="post">
-        <input type="text" class="form__input form__input--search" name="search" > 
-        <input class="btn" type="submit" value="Zoek">
-    </form>
 
-    <a class="searchbar__link" href="uploadmodel.php">Model uploaden</a>
-</div>
-
-<div class="database">
-
-    <div class="item">
-        <p class="item__name">Naam object</p>
-        <img class="item__img" src="images/skull.jpg" alt="3dmodel">
-        <div class="item__link">
-            <a class="btn" href="model.php">Bekijk</a>
-        </div>
+<div class="window">
+    
+    <img class="window__img" src="images/spool+box.png" alt="">
+    
+    <div class="window__info">
+        <p class="window__name">Plastify 3D-print filament</p>
+        <p class="window__price">€25,00</p>
+        <div><a class="btn" href="">Koop</a></div>
         
     </div>
-
 </div>
+
 
 
 

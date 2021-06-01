@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/reset.css"> 
     <link rel="stylesheet" href="dist/app.css">  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
@@ -16,8 +17,11 @@
 
 <div class="container">
 
+<div class="head">  
+    <a href="database.php"><img class="back__img" src="images/back.svg" alt=""></a>
+    <h1 class="title">Een 3D-model toevoegen</h1>
+</div>
 
-<h1 class="title">Een 3D-model toevoegen</h1>
 
 <div class="form__container form__container--model">
 

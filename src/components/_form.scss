@@ -81,7 +81,7 @@ form{
 }
 
 .form__container--model{
-    width:80%;
+    width:100%;
 }
 
 .form__file{
@@ -95,6 +95,36 @@ form{
     font-family: $mont;
 }
 
+.form__title{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size:$bigger;
+    margin-bottom:20px;
+}
+
 .form__label--model{
     color:$pinetree;
+}
+
+.form__double{
+    display:flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.form--webshop{
+    width:80%;
+}
+
+.form__container--webshop{
+    width:100%;
+    margin-bottom:0px;
+}
+
+.form__input--webshop{
+    width:50%;
+}
+
+.form__input--number{
+    width:20%;
 }
