@@ -18,12 +18,12 @@
 
 <div class="form__container" >
 
-    <form action="" method="post">
-        <label class="form__label" for="email">Emailadres</label>
-        <input class="form__input" type="text" class="email" name="email">
+    <form class="form" action="" method="post">
+        <label class="form__label form__label--left" for="email">Emailadres</label>
+        <input class="form__input form__input--middle" type="text" class="email" name="email">
 
-        <label class="form__label" for="password">Password</label>
-        <input class="form__input" type="password" class="password" name="password">
+        <label class="form__label form__label--left" for="password ">Password</label>
+        <input class="form__input form__input--middle" type="password" class="password" name="password">
 
         <a class="form__link link--password" href="">wachtwoord vergeten</a>
 

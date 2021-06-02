@@ -17,11 +17,34 @@
 
 <div class="container">
 
+<div class="sort">
+    <label class="form__label form__label--profile" for="">Sorteren op</label>
+    <select class="form__select" name="" id="">
+        <option value="newest">Nieuwste eerste</option>
+        <option value="oldest">Oudste eerst</option>
+    </select>
+</div>
+
 <div class="community__header_container">
     <div class="community__header">
         <img class="community_header__image" src="images/skull.jpg" alt="avatar">
         <input class="form__input form__input--post" type="text" placeholder="type somthing">
     </div>
+</div>
+
+<div class="popup__post">
+    <form class="form" action="">
+        <span class="form__close"><a class="close" href="">&times;</a></span>
+        <div class="form__header">
+            <img class="form__avatar" src="images/skull.jpg" alt="">
+            <p class="form__subtitle">Nieuw bericht</p>
+        </div>
+        <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" placeholder="Typ je bericht"></textarea>
+        
+        <div class="form__btn form__btn--left">
+        <input class="btn" type="submit">
+        </div>
+    </form>
 </div>
 
 

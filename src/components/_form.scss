@@ -15,13 +15,27 @@
 form{
     display:flex;
     flex-direction: column;
+    
 }
+
 
 .form__label{
     font-family: $comfortaa;
     color: $sapphire;
     font-size: 16px;
     margin-bottom:10px;
+}
+
+.form__label--left{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.form__input--middle{
+    margin-left:auto;
+    margin-right:auto;
+    width:50%
 }
 
 .form__input{
@@ -33,7 +47,10 @@ form{
     height:33px;
     padding-left:10px;
     font-family: $mont;
+   
 }
+
+
 
 .form__input--post{
     margin-bottom:0px;
@@ -42,6 +59,11 @@ form{
 .form__btn{
     display:flex;
     justify-content: center;
+}
+
+.form__btn--left{
+    justify-content: flex-end;
+    margin-top:20px;
 }
 
 .form__btns{
@@ -93,7 +115,7 @@ form{
     font-size: 16px;
     color: $pinetree;
     border-radius: 10px;
-    margin-bottom:20px;
+    // margin-bottom:20px;
     height:33px;
     padding-left:10px;
     font-family: $mont;
@@ -108,6 +130,7 @@ form{
 
 .form__label--model{
     color:$pinetree;
+    margin-top:20px;
 }
 
 .form__double{
@@ -123,6 +146,7 @@ form{
 .form__container--webshop{
     width:100%;
     margin-bottom:0px;
+    
 }
 
 .form__input--webshop{
@@ -137,3 +161,96 @@ form{
     color:$pinetree;
     font-family: $mont;
 }
+
+
+.popup__post{
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: $background;
+    padding:20px;
+    display:none;
+    
+}
+
+.form__header{
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
+
+.form__avatar{
+    width:75px;
+    height:75px;
+    object-fit: cover;
+    border-radius: 70%;
+}
+
+.form__subtitle{
+    color: $pinetree;
+    font-family: $comfortaa;
+}
+
+.form__close{
+    text-align: right;
+    color: $pinetree;
+    font-family: $comfortaa;
+    font-size: $bigger;
+    padding-right:20px;
+}
+
+.close{
+    text-decoration: none;
+}
+
+.form__textarea{
+    margin-top: 20px;
+    border:none;
+    font-size: 16px;
+    color: $pinetree;
+    border-radius: 10px;
+    padding-left:10px;
+    font-family: $mont;
+    background-color: $cultured;
+    padding-top:10px;
+}
+
+.form--profile{
+    display:flex;
+    flex-direction: column;
+}
+
+.form__input--profile{
+    width:60%;
+}
+
+.form__label--profile{
+    color: $pinetree;
+}
+
+.form--signup{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    
+}
+
+.form__group{
+    display:flex;
+    flex-direction: column;
+}
+
+.form__group--left{
+    grid-column-start: 1;
+}
+
+.form__group--right{
+    grid-column-start: 2;
+}
+
+.form__group--middle{
+    grid-column: 1 / span 2;
+    display: flex;
+    justify-content: center;
+}
+

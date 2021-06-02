@@ -18,38 +18,50 @@
 
 <div class="form__container" >
 
-    <form action="POST">
+    <form class="form form--signup" action="" method="post">
 
-        <label class="form__label" for="username">Gebruikersnaam</label>
-        <input class="form__input" type="text" class="username" name="username">
-
+        <div class=" form__group form__group--left">
         <label class="form__label" for="firstname">Voornaam</label>
         <input class="form__input" type="text" class="firstname" name="firstname">
+        </div>
 
+        <div class="form__group form__group--right">
         <label class="form__label" for="lastname">Achternaam</label>
         <input class="form__input" type="text" class="lastname" name="lastname">
+        </div>
 
+        <div class="form__group form__group--left">
+        <label class="form__label" for="username">Gebruikersnaam</label>
+        <input class="form__input" type="text" class="username" name="username">
+        </div>
+
+        <div class="form__group form__group--left">
         <label class="form__label" for="email">Emailadres</label>
         <input class="form__input" type="text" class="email" name="email">
+        </div>
 
+        <div class="form__group form__group--left">
         <label class="form__label" for="password">Password</label>
         <input class="form__input" type="password" class="password" name="password">
+        </div>
 
+        <div class="form__group form__group--right">
         <label class="form__label" for="avatar">Avatar</label>
         <input type="file"
         id="avatar" name="avatar"
         accept="image/png, image/jpeg">
-
+        </div>
         
 
-        <div class="form__btns">
+        <div class="form__group--middle form__btns">
         <input class="btn btn--form" type="submit" value="Registreer">
         <a class="btn btn--printer" href="">Registreer als pinter</a>
         </div>
 
          
-
+        <div class="form__group--middle">
         <a class="form__link" href="">Ik heb al account</a>
+        </div>
     </form>
     
 

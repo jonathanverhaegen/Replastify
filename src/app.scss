@@ -10,6 +10,7 @@
 @import 'components/shop';
 @import 'components/mand';
 @import 'components/post';
+@import 'components/profile';
 @import './colors';
 @import './fonts';
 @import './titles';
@@ -61,4 +62,12 @@ body{
     border-radius: 200px;
     object-fit: cover;
     
+}
+
+.sort{
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom:20px;
+    align-items: center;
+    gap:10px;
 }
