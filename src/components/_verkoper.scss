@@ -1,0 +1,62 @@
+@import '../colors';
+@import '../fonts';
+
+.verkoper{
+    background-color: $background;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+.verkoper__info{
+    display:flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.verkoper__avatar{
+    width:100px;
+    height:100px;
+    object-fit: cover;
+    border-radius: 70%;
+}
+
+.verkoper__username{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $bigger;
+    margin-top:20px;
+}
+
+.verkoper__description{
+    color: $pinetree;
+    font-family: $mont;
+    font-size: $plaintext;
+    margin-top: 10px;
+}
+
+.verkoper__projects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
+.project__img{
+    
+    width:100%;
+    border-radius: 10px;
+}
+
+.project__name{
+    color: $white;
+    font-family: $comfortaa;
+    font-size: $plaintext;
+    margin-top: -30px;
+    margin-left:10px;
+}
+

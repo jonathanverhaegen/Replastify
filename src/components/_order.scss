@@ -1,0 +1,54 @@
+@import '../colors';
+@import '../fonts';
+
+.order__container{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    margin-top:20px;
+    margin-bottom: 50px;
+}
+
+.order{
+    display:grid;
+    grid-template-columns: 1fr 2fr 6fr 2fr;
+    padding:20px;
+    align-items: center;
+    background-color: $background;
+    text-decoration: none;
+
+}
+
+.order__avatar{
+    height:100px;
+    width:100px;
+    object-fit: cover;
+    border-radius: 70%;
+}
+
+.order__username{
+    color: $pinetree;
+    font-family: $comfortaa;
+    font-size: $plaintext;
+}
+
+.order__name{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $bigger;
+    padding-left:150px;
+}
+
+.order__status{
+    color: $pinetree;
+    font-family: $comfortaa;
+    font-size: $bigger;
+}
+
+.order__status--good{
+    color: $sapphire;
+}
+
+.order__status--alert{
+    color: $ruby
+}

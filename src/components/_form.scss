@@ -12,6 +12,10 @@
     border-radius:10px;
 }
 
+.form__container--large{
+    width:100%;
+}
+
 form{
     display:flex;
     flex-direction: column;
@@ -30,6 +34,10 @@ form{
     width: 50%;
     margin-left: auto;
     margin-right: auto
+}
+
+.form__label--black{
+    color: $pinetree;
 }
 
 .form__input--middle{
@@ -238,6 +246,14 @@ form{
 .form__group{
     display:flex;
     flex-direction: column;
+}
+
+.form__group--row{
+    flex-direction: row;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
 }
 
 .form__group--left{
