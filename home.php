@@ -1,11 +1,4 @@
-<?php 
-
-include_once("includes/autoloader.inc.php");
-
-
-
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,6 +15,27 @@ include_once("includes/autoloader.inc.php");
 
 <?php include_once("header.inc.php"); ?>
 
+<div class="home__background">
+
+</div>
+
+<h1 class="title">Populaire modellen</h1>
+<div class="cardwheel__container">
+
+<div class="cardwheel">
+    <div class="item">
+        <p class="item__name">Naam object</p>
+        <img class="item__img" src="images/skull.jpg" alt="3dmodel">
+        <div class="item__link">
+            <a class="btn" href="model.php">Bekijk</a>
+        </div>
+        
+    </div>
+</div>
+<div class="cardwheel__btn">
+    <a class="btn" href="">Modellen zoeken</a>
+</div>
+</div>
 
 
 <?php include_once("footer.inc.php") ?>

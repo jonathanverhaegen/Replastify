@@ -11,6 +11,7 @@
 @import 'components/mand';
 @import 'components/post';
 @import 'components/profile';
+@import 'components/detail';
 @import './colors';
 @import './fonts';
 @import './titles';
@@ -70,4 +71,25 @@ body{
     margin-bottom:20px;
     align-items: center;
     gap:10px;
+}
+
+.cardwheel__container{
+    background-color:$silver;
+    padding:20px;
+    margin-top:20px;
+}
+
+.cardwheel{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.cardwheel__btn{
+    display:flex;
+    justify-content: center;
+    margin-top:20px;
 }
