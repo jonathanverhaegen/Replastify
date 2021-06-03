@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: login.php");
+}else{
+    $id = $_SESSION["id"];
+    
+} 
+
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
