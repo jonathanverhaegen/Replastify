@@ -4,54 +4,61 @@ include_once(__DIR__."/includes/autoloader.inc.php");
 if(!empty($_POST)){
     try{
 
-        $printer = new Printer();
+        $printer = new user();
         $printer->setFirstname($_POST["firstname"]);
         $printer->setLastname($_POST["lastname"]);
         $printer->setUsername($_POST["username"]);
         $printer->setEmail($_POST["email"]);
         $printer->setPassword($_POST["password"]);
+        $printer->setPicture("skull.jpg");
 
-        $file = $_FILES["avatar"];
+        if(!empty($_FILES["avatar"])){
+
         
-        $fileName = $file['name'];
-        $fileTmpName = $file['tmp_name'];
-        $fileSize = $file["size"];
-        $fileError = $file['error'];
-        $fileType = $file["type"];
-        $fileExt = explode(".", $fileName);
-        $fileActExt = strtolower(end($fileExt));
-        $allowed = array("jpg", "png", "jpeg");
-        
-        if(in_array($fileActExt, $allowed)){
-            if($fileError === 0){
-                if($fileSize < 1000000){
 
-                    $fileNameNew = uniqid('', true).".".$fileActExt;
-
-                    $fileDestination = 'images/'.$fileNameNew;
-                    move_uploaded_file($fileTmpName, $fileDestination);
-                    $printer->setPicture($fileNameNew);
-
+            $file = $_FILES["avatar"];
+            
+            $fileName = $file['name'];
+            $fileTmpName = $file['tmp_name'];
+            $fileSize = $file["size"];
+            $fileError = $file['error'];
+            $fileType = $file["type"];
+            $fileExt = explode(".", $fileName);
+            $fileActExt = strtolower(end($fileExt));
+            $allowed = array("jpg", "png", "jpeg");
+            
+            if(in_array($fileActExt, $allowed)){
+                if($fileError === 0){
+                    if($fileSize < 1000000){
+    
+                        $fileNameNew = uniqid('', true).".".$fileActExt;
+    
+                        $fileDestination = 'images/'.$fileNameNew;
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $user->setPicture($fileNameNew);
+    
+                    }else{
+                        $error = "avatar is to big";
+                    }
                 }else{
-                    $error = "avatar is to big";
+                    $error = "there was an error";
                 }
+    
             }else{
-                $error = "there was an error";
+                $error = "file is not supported";
             }
-
-        }else{
-            $error = "file is not supported";
         }
 
         $printer->setStreet($_POST["street"]);
         $printer->setHousenumber($_POST["housenumber"]);
         $printer->setCity($_POST["city"]);
         $printer->setPostalcode($_POST["postalcode"]);
+        $printer->setType("printer");
         
-        $printer->register();
+        $printer->registerPrinter();
 
         session_start();
-        $id = $printer->getPrinterByEmail();
+        $id = $printer->getUserByEmail();
         $_SESSION["id"] = $id["id"];
         $_SESSION["type"] = "printer";
         header("Location: home.php");

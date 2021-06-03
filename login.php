@@ -3,13 +3,12 @@
 include_once(__DIR__."/includes/autoloader.inc.php");
 
 if(!empty($_POST)){
-    $type = $_POST["type"];
-    if($type === "user"){
+   
         try{
             $user = new User();
             $user->setEmail($_POST["email"]);
             $user->setPassword($_POST["password"]);
-            if($user->canLoginUser()){
+            if($user->canLogin()){
                 session_start();
                 $id = $user->getUserByEmail();
                 $_SESSION["id"] = $id["id"];
@@ -19,23 +18,7 @@ if(!empty($_POST)){
         }catch(\Throwable $th){
             $error = $th->getMessage();
         }
-    }
-    if($type === "printer"){
-        try{
-            $printer = new Printer();
-            $printer->setEmail($_POST["email"]);
-            $printer->setPassword($_POST["password"]);
-            if($printer->canLoginPrinter()){
-                session_start();
-                $id = $printer->getPrinterByEmail();
-                $_SESSION["id"] = $id["id"];
-                $_SESSION["type"] = $type;
-                header("Location: home.php");
-            }
-        }catch(\Throwable $th){
-            $error = $th->getMessage();
-        }
-    }
+   
     
 }
 
@@ -65,11 +48,12 @@ if(!empty($_POST)){
 <?php endif; ?>  
 
     <form class="form" action="" method="post">
-        <label class="form__label form__label--left" for="type">Login als</label>
+
+        <!-- <label class="form__label form__label--left" for="type">Login als</label>
         <select class="form__input form__input--middle" type="select"  name="type">
         <option value="user">User</option>
         <option value="printer">Printer</option>
-        </select>
+        </select> -->
 
         <label class="form__label form__label--left" for="email">Emailadres</label>
         <input class="form__input form__input--middle" type="text" class="email" name="email">

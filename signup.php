@@ -10,6 +10,11 @@ if(!empty($_POST)){
         $user->setUsername($_POST["username"]);
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
+        $user->setPicture("skull.jpg");
+        
+        if(!empty($_FILES["avatar"])){
+
+        
 
         $file = $_FILES["avatar"];
         
@@ -42,6 +47,9 @@ if(!empty($_POST)){
         }else{
             $error = "file is not supported";
         }
+    }
+        
+        $user->setType("user");
         
         $user->register();
 

@@ -2,12 +2,109 @@
 include_once(__DIR__ . "/Db.php");
 
 class User{
-    protected $username; 	
-    protected $email; 	
-    protected $password; 	
-    protected $firstname; 	
-    protected $lastname; 	
-    protected $picture;
+    private $username; 	
+    private $email; 	
+    private $password; 	
+    private $firstname; 	
+    private $lastname; 	
+    private $picture;
+    private $street; 	
+    private $housenumber; 	
+    private $city; 	
+    private $postalcode;
+    private $type;
+
+    /**
+     * Get the value of street
+     */ 
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * Set the value of street
+     *
+     * @return  self
+     */ 
+    public function setStreet($street)
+    {
+        if(empty($street)){
+            throw new Exception("Straat mag niet leeg zijn");
+        }
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of housenumber
+     */ 
+    public function getHousenumber()
+    {
+        return $this->housenumber;
+    }
+
+    /**
+     * Set the value of housenumber
+     *
+     * @return  self
+     */ 
+    public function setHousenumber($housenumber)
+    {
+        if(empty($housenumber)){
+            throw new Exception("Huisnummer mag niet leeg zijn");
+        }
+        $this->housenumber = $housenumber;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of city
+     */ 
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set the value of city
+     *
+     * @return  self
+     */ 
+    public function setCity($city)
+    {
+        if(empty($city)){
+            throw new Exception("Stad mag niet leeg zijn");
+        }
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of postalcode
+     */ 
+    public function getPostalcode()
+    {
+        return $this->postalcode;
+    }
+
+    /**
+     * Set the value of postalcode
+     *
+     * @return  self
+     */ 
+    public function setPostalcode($postalcode)
+    {
+        if(empty($postalcode)){
+            throw new Exception("Postcode mag niet leeg zijn");
+        }
+        $this->postalcode = $postalcode;
+
+        return $this;
+    }
 
     /**
      * Get the value of username
@@ -142,14 +239,14 @@ class User{
      */ 
     public function setPicture($picture)
     {
-        if(empty($picture)){
-            $this->picture = "skull.jpg";
-            return $this;
-        }else{
+        // if(empty($picture)){
+        //     $this->picture = "skull.jpg";
+        //     return $this;
+        // }else{
             $this->picture = $picture;
 
             return $this;
-        }
+        
         
     }
 
@@ -159,13 +256,35 @@ class User{
         ];
         $password = password_hash($this->password, PASSWORD_DEFAULT, $options);
         $conn = Db::getConnection();
-        $statement = $conn->prepare("insert into users (username, firstname, lastname, email, password, picture)  values (:username, :firstname, :lastname, :email, :password, :picture)");
+        $statement = $conn->prepare("insert into users (username, firstname, lastname, email, password, avatar, type)  values (:username, :firstname, :lastname, :email, :password, :picture, :type)");
         $statement->bindValue(":username", $this->username);
         $statement->bindValue(":firstname", $this->firstname);
         $statement->bindValue(":lastname", $this->lastname);
         $statement->bindValue(":email", $this->email);
         $statement->bindValue(":password", $password);
         $statement->bindValue(":picture", $this->picture);
+        $statement->bindValue(":type", $this->type);
+        $statement->execute();
+    }
+
+    public function registerPrinter(){
+        $options = [
+            'cost' => 15
+        ];
+        $password = password_hash($this->password, PASSWORD_DEFAULT, $options);
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("insert into users (username, firstname, lastname, email, password, avatar, street, housenumber, city, postalcode, type)  values (:username, :firstname, :lastname, :email, :password, :picture, :street, :housenumber, :city, :postalcode, :type)");
+        $statement->bindValue(":username", $this->username);
+        $statement->bindValue(":firstname", $this->firstname);
+        $statement->bindValue(":lastname", $this->lastname);
+        $statement->bindValue(":email", $this->email);
+        $statement->bindValue(":password", $password);
+        $statement->bindValue(":picture", $this->picture);
+        $statement->bindValue(":street", $this->street);
+        $statement->bindValue(":housenumber", $this->housenumber);
+        $statement->bindValue(":city", $this->city);
+        $statement->bindValue(":postalcode", $this->postalcode);
+        $statement->bindValue(":type", $this->type);
         $statement->execute();
     }
 
@@ -178,7 +297,7 @@ class User{
 
     }
 
-    public function canLoginUser(){
+    public function canLogin(){
         $email = $this->getEmail();
         $password = $this->getPassword();
 
@@ -198,5 +317,25 @@ class User{
         }else{
             return false;
         }
+    }
+
+    /**
+     * Get the value of type
+     */ 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
     }
 }
