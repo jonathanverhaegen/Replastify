@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
@@ -6,6 +7,9 @@ if(!isset($_SESSION['id'])){
     $id = $_SESSION["id"];
     
 }
+
+$user = User::getUserById($id);
+var_dump($user);
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -29,7 +33,7 @@ if(!isset($_SESSION['id'])){
 <h1 class="title title--left">Instellingen</h1>
 
 <div class="profile__container">
-    <img class="profile__image" src="images/skull.jpg" alt="avatar">
+    <img class="profile__image" src="images/<?php echo $user["avatar"] ?>" alt="avatar">
     <input class="profile__file form__file" type="file">
     <a class="profile__link" href="">Upload foto</a>
 </div>
@@ -37,11 +41,11 @@ if(!isset($_SESSION['id'])){
 <div class="profile__container">
     <div class="form--profile">
         <label class="form__label form__label--profile" for="firstname">Voornaam</label>
-        <input type="text" class="form__input form__input--profile" name="firstname" id="firstname" placeholder="Voornaam">
+        <input type="text" class="form__input form__input--profile" name="firstname" id="firstname" placeholder="<?php echo $user["firstname"] ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="lastname">Achternaam</label>
-        <input type="text" class="form__input form__input--profile" name="lastname" id="lastname" placeholder="Achternaam">
+        <input type="text" class="form__input form__input--profile" name="lastname" id="lastname" placeholder="<?php echo $user["lastname"] ?>">
     </div>
     <a class="profile__link" href="">Opslaan</a>
 </div>
@@ -49,39 +53,44 @@ if(!isset($_SESSION['id'])){
 <div class="profile__container profile__container--big">
     <div class="form--profile">
         <label class="form__label form__label--profile" for="street">Straat</label>
-        <input type="text" class="form__input form__input--profile" name="street" id="street" placeholder="Straat">
+        <input type="text" class="form__input form__input--profile" name="street" id="street" placeholder="<?php echo $user["street"] ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="housenumber">Huisnummer</label>
-        <input type="text" class="form__input form__input--profile" name="housenumber" id="housenumber" placeholder="Huisnummer">
+        <input type="text" class="form__input form__input--profile" name="housenumber" id="housenumber" placeholder="<?php echo $user["housenumber"] ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="city">Stad</label>
-        <input type="text" class="form__input form__input--profile" name="city" id="city" placeholder="Stad">
+        <input type="text" class="form__input form__input--profile" name="city" id="city" placeholder="<?php echo $user["city"] ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="postalcode">Postcode</label>
-        <input type="text" class="form__input form__input--profile" name="postalcode" id="postalcode" placeholder="Postcode">
+        <input type="text" class="form__input form__input--profile" name="postalcode" id="postalcode" placeholder="<?php echo $user["postalcode"] ?>">
     </div>
     <a class="profile__link" href="">Opslaan</a>
 </div>
 
 <div class="profile__container">
     <div class="form--profile">
-        <label class="form__label form__label--profile" for="phone">Telefoonnummer</label>
-        <input type="text" class="form__input form__input--profile" name="phone" id="phone" placeholder="Telefoonnummer">
+        <label class="form__label form__label--profile" for="username">Username</label>
+        <input type="text" class="form__input form__input--profile" name="username" id="username" placeholder="<?php echo $user["username"] ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="email">Email</label>
-        <input type="text" class="form__input form__input--profile" name="email" id="email" placeholder="Email">
+        <input type="text" class="form__input form__input--profile" name="email" id="email" placeholder="<?php echo $user["email"] ?>">
     </div>
     <a class="profile__link" href="">Opslaan</a>
 </div>
 
+<div class="logout">
+<a class="logout__link" href="logout.php">Logout</a>
+</div>
 
 
 </div>
 <?php include_once("footer.inc.php") ?>
+ 
+<script src="js/profile.js"></script>
     
 </body>
 </html>

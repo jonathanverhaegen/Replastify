@@ -101,6 +101,8 @@ if(!isset($_SESSION['id'])){
 
 </div>
 <?php include_once("footer.inc.php") ?>
+
+<script src="js/webshop.js"></script>
     
 </body>
 </html>

@@ -10,9 +10,10 @@ if(!empty($_POST)){
             $user->setPassword($_POST["password"]);
             if($user->canLogin()){
                 session_start();
-                $id = $user->getUserByEmail();
-                $_SESSION["id"] = $id["id"];
-                $_SESSION["type"] = $type;
+                $loged = $user->getUserByEmail();
+                
+                $_SESSION["id"] = $loged["id"];
+                $_SESSION["type"] = $loged["type"];
                 header("Location: home.php");
             }
         }catch(\Throwable $th){

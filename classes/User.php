@@ -290,7 +290,7 @@ class User{
 
     public function getUserByEmail(){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select id from users where email = :email");
+        $statement = $conn->prepare("select * from users where email = :email");
         $statement->bindValue(":email", $this->email);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
@@ -337,5 +337,13 @@ class User{
         $this->type = $type;
 
         return $this;
+    }
+
+    public static function getUserById($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users where id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

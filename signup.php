@@ -54,9 +54,10 @@ if(!empty($_POST)){
         $user->register();
 
         session_start();
-        $id = $user->getUserByEmail();
-        $_SESSION["id"] = $id["id"];
-        $_SESSION["type"] = "user";
+        $loged = $user->getUserByEmail();
+                
+        $_SESSION["id"] = $loged["id"];
+        $_SESSION["type"] = $loged["type"];
         header("Location: home.php");
 
 

@@ -74,7 +74,7 @@ session_start();
 
         <div class="mand__title">
             <p class="mand__name">Winkelmandje</p>
-            <p class="mand__price">€25,00</p>
+            <p class="mand__price"></p>
         </div>
 
         <div class="mand__body">
@@ -91,7 +91,7 @@ session_start();
             <p class="mand__kost">Verzendkosten</p>
             <p class="mand__kost__number">5 euro</p>
             <p class="mand__total">Totaal</p>
-            <p class="mand__total__number">30 euro</p>
+            <p class="mand__total__number"></p>
         </div>
     </div>
 
@@ -103,6 +103,8 @@ session_start();
 
 </div>
 <?php include_once("footer.inc.php") ?>
+
+<script src="js/webshop.js"></script>
     
 </body>
 </html>

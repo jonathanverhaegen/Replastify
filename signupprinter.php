@@ -58,9 +58,10 @@ if(!empty($_POST)){
         $printer->registerPrinter();
 
         session_start();
-        $id = $printer->getUserByEmail();
-        $_SESSION["id"] = $id["id"];
-        $_SESSION["type"] = "printer";
+        $loged = $printer->getUserByEmail();
+                
+        $_SESSION["id"] = $loged["id"];
+        $_SESSION["type"] = $loged["type"];
         header("Location: home.php");
 
 

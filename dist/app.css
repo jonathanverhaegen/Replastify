@@ -990,6 +990,17 @@ form {
   text-align: right;
 }
 
+.logout {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logout__link {
+  color: #25291C;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+}
+
 .detail {
   background-color: #f5f5f5;
   padding: 20px;
