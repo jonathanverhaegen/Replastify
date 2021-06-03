@@ -2,12 +2,12 @@
 include_once(__DIR__ . "/Db.php");
 
 class User{
-    private $username; 	
-    private $email; 	
-    private $password; 	
-    private $firstname; 	
-    private $lastname; 	
-    private $picture;
+    protected $username; 	
+    protected $email; 	
+    protected $password; 	
+    protected $firstname; 	
+    protected $lastname; 	
+    protected $picture;
 
     /**
      * Get the value of username
@@ -178,7 +178,7 @@ class User{
 
     }
 
-    public function canLogin(){
+    public function canLoginUser(){
         $email = $this->getEmail();
         $password = $this->getPassword();
 

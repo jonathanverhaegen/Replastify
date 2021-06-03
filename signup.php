@@ -10,18 +10,53 @@ if(!empty($_POST)){
         $user->setUsername($_POST["username"]);
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
-        $user->setPicture($_POST["avatar"]);
+
+        $file = $_FILES["avatar"];
+        
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file["size"];
+        $fileError = $file['error'];
+        $fileType = $file["type"];
+        $fileExt = explode(".", $fileName);
+        $fileActExt = strtolower(end($fileExt));
+        $allowed = array("jpg", "png", "jpeg");
+        
+        if(in_array($fileActExt, $allowed)){
+            if($fileError === 0){
+                if($fileSize < 1000000){
+
+                    $fileNameNew = uniqid('', true).".".$fileActExt;
+
+                    $fileDestination = 'images/'.$fileNameNew;
+                    move_uploaded_file($fileTmpName, $fileDestination);
+                    $user->setPicture($fileNameNew);
+
+                }else{
+                    $error = "avatar is to big";
+                }
+            }else{
+                $error = "there was an error";
+            }
+
+        }else{
+            $error = "file is not supported";
+        }
+        
         $user->register();
 
         session_start();
         $id = $user->getUserByEmail();
         $_SESSION["id"] = $id["id"];
+        $_SESSION["type"] = "user";
         header("Location: home.php");
 
 
     }catch(\Throwable $th){
         $error = $th->getMessage();
     }
+
+    
 }
 
 
@@ -50,7 +85,7 @@ if(!empty($_POST)){
 <?php if(!empty($error)): ?>
     <p class="form__alert"><?php echo $error; ?></p>
 <?php endif; ?>  
-    <form class="form form--signup" action="" method="post">
+    <form class="form form--signup" action="" method="post" enctype="multipart/form-data">
 
         
         <div class=" form__group form__group--left">
@@ -80,20 +115,18 @@ if(!empty($_POST)){
 
         <div class="form__group form__group--right">
         <label class="form__label" for="avatar">Avatar</label>
-        <input type="file"
-        id="avatar" name="avatar"
-        accept="image/png, image/jpeg">
+        <input type="file" id="avatar" name="avatar">
         </div>
         
 
         <div class="form__group--middle form__btns">
         <input class="btn btn--form" type="submit" value="Registreer">
-        <a class="btn btn--printer" href="">Registreer als pinter</a>
+        <a class="btn btn--printer" href="signupprinter.php">Registreer als pinter</a>
         </div>
 
          
         <div class="form__group--middle">
-        <a class="form__link" href="">Ik heb al account</a>
+        <a class="form__link" href="login.php">Ik heb al account</a>
         </div>
     </form>
     

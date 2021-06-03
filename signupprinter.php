@@ -1,4 +1,74 @@
-<!DOCTYPE html>
+<?php
+include_once(__DIR__."/includes/autoloader.inc.php");
+
+if(!empty($_POST)){
+    try{
+
+        $printer = new Printer();
+        $printer->setFirstname($_POST["firstname"]);
+        $printer->setLastname($_POST["lastname"]);
+        $printer->setUsername($_POST["username"]);
+        $printer->setEmail($_POST["email"]);
+        $printer->setPassword($_POST["password"]);
+
+        $file = $_FILES["avatar"];
+        
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file["size"];
+        $fileError = $file['error'];
+        $fileType = $file["type"];
+        $fileExt = explode(".", $fileName);
+        $fileActExt = strtolower(end($fileExt));
+        $allowed = array("jpg", "png", "jpeg");
+        
+        if(in_array($fileActExt, $allowed)){
+            if($fileError === 0){
+                if($fileSize < 1000000){
+
+                    $fileNameNew = uniqid('', true).".".$fileActExt;
+
+                    $fileDestination = 'images/'.$fileNameNew;
+                    move_uploaded_file($fileTmpName, $fileDestination);
+                    $printer->setPicture($fileNameNew);
+
+                }else{
+                    $error = "avatar is to big";
+                }
+            }else{
+                $error = "there was an error";
+            }
+
+        }else{
+            $error = "file is not supported";
+        }
+
+        $printer->setStreet($_POST["street"]);
+        $printer->setHousenumber($_POST["housenumber"]);
+        $printer->setCity($_POST["city"]);
+        $printer->setPostalcode($_POST["postalcode"]);
+        
+        $printer->register();
+
+        session_start();
+        $id = $printer->getPrinterByEmail();
+        $_SESSION["id"] = $id["id"];
+        $_SESSION["type"] = "printer";
+        header("Location: home.php");
+
+
+    }catch(\Throwable $th){
+        $error = $th->getMessage();
+    }
+
+    
+}
+
+
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,20 +84,55 @@
 <body>
 <?php include_once("header.inc.php"); ?>
 
-<h1 class="title">Registreer</h1>
+<h1 class="title">Registreer als printer</h1>
 
 <div class="form__container" >
+<?php if(!empty($error)): ?>
+    <p class="form__alert"><?php echo $error; ?></p>
+<?php endif; ?> 
 
-    <form class="form form--signup" action="" method="post">
+    <form class="form form--signup" action="" method="post" enctype="multipart/form-data">
 
-        <div class=" form__group form__group--left">
+    <div class=" form__group form__group--left">
+        <label class="form__label" for="firstname">Voornaam</label>
+        <input class="form__input" type="text" class="firstname" name="firstname">
+        </div>
+
+        <div class="form__group form__group--right">
+        <label class="form__label" for="lastname">Achternaam</label>
+        <input class="form__input" type="text" class="lastname" name="lastname">
+        </div>
+
+        <div class="form__group form__group--left">
+        <label class="form__label" for="username">Gebruikersnaam</label>
+        <input class="form__input" type="text" class="username" name="username">
+        </div>
+
+        <div class="form__group form__group--left">
+        <label class="form__label" for="email">Emailadres</label>
+        <input class="form__input" type="text" class="email" name="email">
+        </div>
+
+        <div class="form__group form__group--left">
+        <label class="form__label" for="password">Password</label>
+        <input class="form__input" type="password" class="password" name="password">
+        </div>
+
+        <div class="form__group form__group--right">
+        <label class="form__label" for="avatar">Avatar</label>
+        <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg">
+        </div>
+
+        <div class=" form__group form__group--left form__group--printer">
         <label class="form__label" for="street">Straat</label>
         <input class="form__input" type="text" class="street" name="street">
         </div>
 
-        <div class="form__group form__group--right">
-        <label class="form__label" for="phone">Telefoonnummer</label>
-        <input class="form__input" type="text" class="phone" name="phone">
+        <div class="form__group form__group--right form__group--printer">
+        <label class="form__label" for="housenumber">Huisnummer</label>
+        <input class="form__input" type="text" class="housenumber" name="housenumber">
         </div>
 
         <div class="form__group form__group--left">

@@ -530,6 +530,10 @@ form {
   margin-bottom: 50px;
 }
 
+.form__group--printer {
+  margin-top: 50px;
+}
+
 .searchbar {
   background-color: #f5f5f5;
   display: grid;
