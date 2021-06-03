@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__ . "/Db.php");
 
 class User{
     private $username; 	
@@ -123,8 +124,30 @@ class User{
      */ 
     public function setPicture($picture)
     {
-        $this->picture = $picture;
+        if(empty($picture)){
+            $this->picture = "skull.jpg";
+            return $this;
+        }else{
+            $this->picture = $picture;
 
-        return $this;
+            return $this;
+        }
+        
+    }
+
+    public function register(){
+        $options = [
+            'cost' => 15
+        ];
+        $password = password_hash($this->password, PASSWORD_DEFAULT, $options);
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("insert into users (username, firstname, lastname, email, password, picture)  values (:username, :firstname, :lastname, :email, :password, :picture)");
+        $statement->bindValue(":username", $this->username);
+        $statement->bindValue(":firstname", $this->firstname);
+        $statement->bindValue(":lastname", $this->lastname);
+        $statement->bindValue(":email", $this->email);
+        $statement->bindValue(":password", $password);
+        $statement->bindValue(":picture", $this->picture);
+        $statement->execute();
     }
 }

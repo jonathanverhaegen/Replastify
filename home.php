@@ -16,7 +16,9 @@
 <?php include_once("header.inc.php"); ?>
 
 <div class="home__background">
-
+    <div class="home__logo">
+        <img src="images/" alt="">
+    </div>
 </div>
 
 <h1 class="title">Populaire modellen</h1>

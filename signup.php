@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+<?php 
+include_once(__DIR__."/includes/autoloader.inc.php");
+
+if(!empty($_POST)){
+    try{
+
+        $user = new User();
+        $user->setFirstname($_POST["firstname"]);
+        $user->setLastname($_POST["lastname"]);
+        $user->setUsername($_POST["username"]);
+        $user->setEmail($_POST["email"]);
+        $user->setPassword($_POST["password"]);
+        $user->setPicture($_POST["avatar"]);
+        $user->register();
+
+
+    }catch(\Throwable $th){
+
+    }
+}
+
+
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

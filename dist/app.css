@@ -47,6 +47,10 @@ nav {
   border: none;
 }
 
+.btn--alert {
+  background-color: #A31621;
+}
+
 .btn--landing {
   margin-top: 20px;
 }
