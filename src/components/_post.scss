@@ -6,16 +6,25 @@
     margin-top:50px;
     background-color: $background;
     padding-top:50px;
+    display:flex;
+    flex-direction: column;
     
 }
 
 .post{
+    
+    margin-bottom:20px;
+    
+    
+}
+
+.post__body{
     width:50%;
     margin-left:auto;
     margin-right:auto;
     padding:20px;
     background-color:white;
-    
+    border-radius: 10px 10px 0px 0px;
 }
 
 .post__user{
@@ -60,7 +69,7 @@
 .comments__btn{
     display:flex;
     gap:5px;
-    margin-top:10px;
+    margin-top:20px;
     align-items: center;
 }
 
@@ -76,10 +85,12 @@
 
 .comment__field__container{
     background-color: $dimgray;
-    width: 50%;
+    width:50%;
     margin-left:auto;
     margin-right:auto;
-    padding-top:10px;
+    padding:10px;
+    margin-bottom: 50px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .comment__field{

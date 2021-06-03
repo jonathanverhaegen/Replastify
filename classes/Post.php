@@ -1,4 +1,5 @@
 <?php 
+include_once(__DIR__ . "/Db.php");
 
 class Post{
     private $postName; 	
@@ -84,5 +85,20 @@ class Post{
         $this->user_id = $user_id;
 
         return $this;
+    }
+
+    public function savePost($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("insert into posts (text, user_id, time) values (:text, :user_id, sysdate())");
+        $statement->bindValue(":user_id", $id);
+        $statement->bindValue(":text", $this->text);
+        $statement->execute();
+    }
+
+    public static function getAllPosts(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from posts INNER JOIN users on `posts`.`user_id` = `users`.`id` order by time desc");
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }

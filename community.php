@@ -13,6 +13,17 @@ $user = User::getUserById($id);
 
 
 
+if(!empty($_POST)){
+    $post = new Post();
+    $post->setText($_POST["description"]);
+    $post->savePost($id);
+}
+
+$posts = Post::getAllPosts();
+
+
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +44,10 @@ $user = User::getUserById($id);
 <div class="container">
 
 <div class="sort">
-    <label class="form__label form__label--profile" for="">Sorteren op</label>
-    <select class="form__select" name="" id="">
-        <option value="newest">Nieuwste eerste</option>
-        <option value="oldest">Oudste eerst</option>
+    <label class="form__label form__label--profile" for="sort">Sorteren op</label>
+    <select class="form__select" name="sort" id="sort">
+        <option value="new">Nieuwste eerste</option>
+        <option value="old">Oudste eerst</option>
     </select>
 </div>
 
@@ -48,7 +59,7 @@ $user = User::getUserById($id);
 </div>
 
 <div class="popup__post">
-    <form class="form" action="">
+    <form class="form" action="" method="post">
         <span class="form__close"><a class="close" href="">&times;</a></span>
         <div class="form__header">
             <img class="form__avatar" src="images/<?php echo $user["avatar"]; ?>" alt="">
@@ -67,15 +78,20 @@ $user = User::getUserById($id);
 
 <div class="post__container">
 
+<?php foreach($posts as $p): ?>
+
     <div class="post">
+    <div class="post__body">
         <div class="post__user">
-            <img class="post__avatar" src="images/skull.jpg" alt="">
-            <p class="post__username">Jonathan Verhaegen</p>
+            <img class="post__avatar" src="images/<?php echo $p['avatar'] ?>" alt="">
+            <p class="post__username"><?php echo htmlspecialchars($p['username']) ?></p>
         </div>
-        <p class="post__description">Vrij goeie beschrijving dit</p>
+        <p class="post__description"><?php echo htmlspecialchars($p['text']) ?></p>
+        <?php if(isset($p["images"])): ?>
         <div class="post__image__holder">
             <img class="post__image" src="images/skull.jpg" alt="">
         </div>
+        <?php endif; ?>
 
         <div class="comments__btn">
             <img class="comment__icon" src="images/comment.svg" alt="comment">
@@ -85,21 +101,26 @@ $user = User::getUserById($id);
 
         <ul class="comments">
             <li class="comment">
-                <img class="comment__avatar" src="images/skull.jpg" alt="avatar">
-                <p class="comment__username">Jonathan Verhaegen</p>
+                <img class="comment__avatar" src="images/<?php echo $p['avatar'] ?>" alt="avatar">
+                <p class="comment__username"><?php echo htmlspecialchars($p['username']) ?></p>
                 <p class="comment__text">Amaai wat een schoon model</p>
             </li>
         </ul>
-
-
     </div>
+
     <div class="comment__field__container">
         <div class="comment__field">
             <img class="comment__field__img" src="images/<?php echo $user["avatar"]; ?>" alt="">
             <input class="form__input form__input--post" type="text" placeholder="Type a comment">
-            <a class="btn" href="">Plaatsen</a>
+            <a data-userid="<?php echo $user["id"]; ?>" data-postid="<?php echo $p[0]; ?>" class="btn" id="commentBtn" href="">Plaatsen</a>
         </div>
+
+
     </div>
+    
+    </div>
+
+    <?php endforeach; ?>
 </div>
 
 

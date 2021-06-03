@@ -381,6 +381,6 @@ class User{
         $statement->bindValue(":id", $id);
         $statement->bindValue(":username", $this->username);
         $statement->bindValue(":email", $this->email);
-        $statement->execute();
+        $statement->execute(PDO::FETCH_ASSOC);
     }
 }

@@ -88,6 +88,8 @@ $user = User::getUserById($id);
     <input class="profile__link" type="submit" value="Opslaan">
 </form>
 
+
+
 <div class="logout">
 <a class="logout__link" href="logout.php">Logout</a>
 </div>
