@@ -79,8 +79,16 @@ $posts = Post::getAllPosts();
 <div class="post__container">
 
 <?php foreach($posts as $p): ?>
+    <?php 
 
-    <div class="post">
+        $comments = Comment::getCommentsForPost($p[0]); 
+
+        $amountComments = count($comments);
+        
+        
+    ?>
+
+    <div class="post" data-userid="<?php echo $user["id"]; ?>" data-postid="<?php echo $p[0]; ?>">
     <div class="post__body">
         <div class="post__user">
             <img class="post__avatar" src="images/<?php echo $p['avatar'] ?>" alt="">
@@ -95,24 +103,26 @@ $posts = Post::getAllPosts();
 
         <div class="comments__btn">
             <img class="comment__icon" src="images/comment.svg" alt="comment">
-            <p class="comment__number">0</p>
+            <p class="comment__number"><?php echo $amountComments ?></p>
         </div>
 
 
         <ul class="comments">
+            <?php foreach($comments as $c): ?>
             <li class="comment">
-                <img class="comment__avatar" src="images/<?php echo $p['avatar'] ?>" alt="avatar">
-                <p class="comment__username"><?php echo htmlspecialchars($p['username']) ?></p>
-                <p class="comment__text">Amaai wat een schoon model</p>
+                <img class="comment__avatar" src="images/<?php echo $c['avatar'] ?>" alt="avatar">
+                <p class="comment__username"><?php echo htmlspecialchars($c['username']); ?></p>
+                <p class="comment__text"><?php echo htmlspecialchars($c['comment']); ?></p>
             </li>
+            <?php endforeach; ?>
         </ul>
     </div>
 
     <div class="comment__field__container">
         <div class="comment__field">
             <img class="comment__field__img" src="images/<?php echo $user["avatar"]; ?>" alt="">
-            <input class="form__input form__input--post" type="text" placeholder="Type a comment">
-            <a data-userid="<?php echo $user["id"]; ?>" data-postid="<?php echo $p[0]; ?>" class="btn" id="commentBtn" href="">Plaatsen</a>
+            <input class="form__input form__input--post" type="text" id="commentField" placeholder="Type a comment">
+            <a  class="btn" id="commentBtn" href="">Plaatsen</a>
         </div>
 
 

@@ -64,4 +64,21 @@ class Comment{
 
         return $this;
     }
+
+    public function saveComment(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("insert into comments (comment, user_id, post_id) values (:comment, :user_id, :post_id)");
+        $statement->bindValue(":user_id", $this->user_id);
+        $statement->bindValue(":comment", $this->comment);
+        $statement->bindValue(":post_id", $this->post_id);
+        $statement->execute();
+    }
+
+    public static function getCommentsForPost($post_id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from comments INNER JOIN `users` ON `comments`.`user_id` = `users`.`id` where post_id = :post_id");
+        $statement->bindValue(":post_id", $post_id);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
