@@ -28,6 +28,12 @@
     font-size: $bigger;
     text-decoration: none;
     text-align: right;
+    border:none;
+    background-color: $background;
+}
+
+.profile__link:hover{
+    cursor: pointer;
 }
 
 .logout{
@@ -41,4 +47,5 @@
     color: $pinetree;
     font-family: $comfortaa;
     font-size: $bigger;
+    
 }

@@ -9,7 +9,11 @@ if(!isset($_SESSION['id'])){
 }
 
 $user = User::getUserById($id);
-var_dump($user);
+
+
+
+
+
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -32,55 +36,57 @@ var_dump($user);
 
 <h1 class="title title--left">Instellingen</h1>
 
-<div class="profile__container">
+<form class="profile__container" action="ajax/updateAvatar.php" method="post" enctype="multipart/form-data">
+    
     <img class="profile__image" src="images/<?php echo $user["avatar"] ?>" alt="avatar">
-    <input class="profile__file form__file" type="file">
-    <a class="profile__link" href="">Upload foto</a>
-</div>
+    <input class="profile__file form__file" type="file" id="avatar" name="avatar">
+    <input class="profile__link" type="submit" value="Upload foto">
+    
+</form>
 
-<div class="profile__container">
+<form class="profile__container" action="ajax/updateName.php" method="post" enctype="multipart/form-data">
     <div class="form--profile">
         <label class="form__label form__label--profile" for="firstname">Voornaam</label>
-        <input type="text" class="form__input form__input--profile" name="firstname" id="firstname" placeholder="<?php echo $user["firstname"] ?>">
+        <input type="text" class="form__input form__input--profile" name="firstname" id="firstname" value="<?php echo htmlspecialchars($user["firstname"]) ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="lastname">Achternaam</label>
-        <input type="text" class="form__input form__input--profile" name="lastname" id="lastname" placeholder="<?php echo $user["lastname"] ?>">
+        <input type="text" class="form__input form__input--profile" name="lastname" id="lastname" value="<?php echo htmlspecialchars($user["lastname"]) ?>">
     </div>
-    <a class="profile__link" href="">Opslaan</a>
-</div>
+    <input class="profile__link" type="submit" value="Opslaan">
+</form>
 
-<div class="profile__container profile__container--big">
+<form class="profile__container profile__container--big" action="ajax/updateAdress.php" method="post">
     <div class="form--profile">
         <label class="form__label form__label--profile" for="street">Straat</label>
-        <input type="text" class="form__input form__input--profile" name="street" id="street" placeholder="<?php echo $user["street"] ?>">
+        <input type="text" class="form__input form__input--profile" name="street" id="street" value="<?php echo htmlspecialchars($user["street"]) ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="housenumber">Huisnummer</label>
-        <input type="text" class="form__input form__input--profile" name="housenumber" id="housenumber" placeholder="<?php echo $user["housenumber"] ?>">
+        <input type="text" class="form__input form__input--profile" name="housenumber" id="housenumber" value="<?php echo htmlspecialchars($user["housenumber"]) ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="city">Stad</label>
-        <input type="text" class="form__input form__input--profile" name="city" id="city" placeholder="<?php echo $user["city"] ?>">
+        <input type="text" class="form__input form__input--profile" name="city" id="city" value="<?php echo htmlspecialchars($user["city"]) ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="postalcode">Postcode</label>
-        <input type="text" class="form__input form__input--profile" name="postalcode" id="postalcode" placeholder="<?php echo $user["postalcode"] ?>">
+        <input type="text" class="form__input form__input--profile" name="postalcode" id="postalcode" value="<?php echo htmlspecialchars($user["postalcode"]) ?>">
     </div>
-    <a class="profile__link" href="">Opslaan</a>
-</div>
+    <input class="profile__link" type="submit" value="Opslaan">
+</form>
 
-<div class="profile__container">
+<form class="profile__container" action="ajax/updateUser.php" method="post">
     <div class="form--profile">
         <label class="form__label form__label--profile" for="username">Username</label>
-        <input type="text" class="form__input form__input--profile" name="username" id="username" placeholder="<?php echo $user["username"] ?>">
+        <input type="text" class="form__input form__input--profile" name="username" id="username" value="<?php echo htmlspecialchars($user["username"]) ?>">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="email">Email</label>
-        <input type="text" class="form__input form__input--profile" name="email" id="email" placeholder="<?php echo $user["email"] ?>">
+        <input type="text" class="form__input form__input--profile" name="email" id="email" value="<?php echo htmlspecialchars($user["email"]) ?>">
     </div>
-    <a class="profile__link" href="">Opslaan</a>
-</div>
+    <input class="profile__link" type="submit" value="Opslaan">
+</form>
 
 <div class="logout">
 <a class="logout__link" href="logout.php">Logout</a>
@@ -90,7 +96,7 @@ var_dump($user);
 </div>
 <?php include_once("footer.inc.php") ?>
  
-<script src="js/profile.js"></script>
+<!-- <script src="js/profile.js"></script> -->
     
 </body>
 </html>

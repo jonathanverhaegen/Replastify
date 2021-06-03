@@ -1,4 +1,5 @@
 <?php 
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
@@ -6,6 +7,8 @@ if(!isset($_SESSION['id'])){
     $id = $_SESSION["id"];
     
 }
+
+$user = User::getUserById($id);
 
 
 
@@ -39,8 +42,8 @@ if(!isset($_SESSION['id'])){
 
 <div class="community__header_container">
     <div class="community__header">
-        <img class="community_header__image" src="images/skull.jpg" alt="avatar">
-        <input class="form__input form__input--post" type="text" placeholder="type somthing">
+        <img class="community_header__image" src="images/<?php echo $user["avatar"]; ?>" alt="avatar">
+        <input class="form__input form__input--post" type="text" placeholder="type somthing" id="input">
     </div>
 </div>
 
@@ -48,7 +51,7 @@ if(!isset($_SESSION['id'])){
     <form class="form" action="">
         <span class="form__close"><a class="close" href="">&times;</a></span>
         <div class="form__header">
-            <img class="form__avatar" src="images/skull.jpg" alt="">
+            <img class="form__avatar" src="images/<?php echo $user["avatar"]; ?>" alt="">
             <p class="form__subtitle">Nieuw bericht</p>
         </div>
         <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" placeholder="Typ je bericht"></textarea>
@@ -92,7 +95,7 @@ if(!isset($_SESSION['id'])){
     </div>
     <div class="comment__field__container">
         <div class="comment__field">
-            <img class="comment__field__img" src="images/skull.jpg" alt="">
+            <img class="comment__field__img" src="images/<?php echo $user["avatar"]; ?>" alt="">
             <input class="form__input form__input--post" type="text" placeholder="Type a comment">
             <a class="btn" href="">Plaatsen</a>
         </div>
@@ -103,6 +106,8 @@ if(!isset($_SESSION['id'])){
 
 </div>
 <?php include_once("footer.inc.php") ?>
+
+<script src="js/community.js"></script>
     
 </body>
 </html>

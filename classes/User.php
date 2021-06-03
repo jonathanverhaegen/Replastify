@@ -346,4 +346,41 @@ class User{
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function updateNames($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set firstname = :firstname, lastname = :lastname where id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->bindValue(":firstname", $this->firstname);
+        $statement->bindValue(":lastname", $this->lastname);
+        $statement->execute();
+    }
+
+    public function updateAvatar($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set avatar = :picture where id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->bindValue(":picture", $this->picture);
+        $statement->execute();
+    }
+
+    public function updateAdress($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set street = :street, housenumber = :housenumber, city = :city, postalcode = :postalcode where id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->bindValue(":street", $this->street);
+        $statement->bindValue(":housenumber", $this->housenumber);
+        $statement->bindValue(":city", $this->city);
+        $statement->bindValue(":postalcode", $this->postalcode);
+        $statement->execute();
+    }
+
+    public function updateUser($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set username = :username, email = :email where id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->bindValue(":username", $this->username);
+        $statement->bindValue(":email", $this->email);
+        $statement->execute();
+    }
 }
