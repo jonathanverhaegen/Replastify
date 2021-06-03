@@ -13,9 +13,14 @@ if(!empty($_POST)){
         $user->setPicture($_POST["avatar"]);
         $user->register();
 
+        session_start();
+        $id = $user->getUserByEmail();
+        $_SESSION["id"] = $id["id"];
+        header("Location: home.php");
+
 
     }catch(\Throwable $th){
-
+        $error = $th->getMessage();
     }
 }
 
@@ -42,9 +47,12 @@ if(!empty($_POST)){
 <h1 class="title">Registreer</h1>
 
 <div class="form__container" >
-
+<?php if(!empty($error)): ?>
+    <p class="form__alert"><?php echo $error; ?></p>
+<?php endif; ?>  
     <form class="form form--signup" action="" method="post">
 
+        
         <div class=" form__group form__group--left">
         <label class="form__label" for="firstname">Voornaam</label>
         <input class="form__input" type="text" class="firstname" name="firstname">

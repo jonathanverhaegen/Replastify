@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+<?php
+
+include_once(__DIR__."/includes/autoloader.inc.php");
+
+if(!empty($_POST)){
+    try{
+        $user = new User();
+        $user->setEmail($_POST["email"]);
+        $user->setPassword($_POST["password"]);
+        if($user->canLogin()){
+            session_start();
+            $id = $user->getUserByEmail();
+            $_SESSION["id"] = $id["id"];
+            header("Location: home.php");
+        }
+    }catch(\Throwable $th){
+        $error = $th->getMessage();
+    }
+}
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +39,9 @@
 <h1 class="title">Login</h1>
 
 <div class="form__container" >
+<?php if(!empty($error)): ?>
+    <p class="form__alert"><?php echo $error; ?></p>
+<?php endif; ?>  
 
     <form class="form" action="" method="post">
         <label class="form__label form__label--left" for="email">Emailadres</label>

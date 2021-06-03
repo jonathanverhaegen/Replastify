@@ -24,6 +24,11 @@ class User{
      */ 
     public function setUsername($username)
     {
+
+        if(empty($username)){
+            throw new Exception("Username mag niet leeg zijn");
+        }
+
         $this->username = $username;
 
         return $this;
@@ -44,6 +49,9 @@ class User{
      */ 
     public function setEmail($email)
     {
+        if(empty($email)){
+            throw new Exception("Email mag niet leeg zijn");
+        }
         $this->email = $email;
 
         return $this;
@@ -64,8 +72,11 @@ class User{
      */ 
     public function setPassword($password)
     {
-        $this->password = $password;
+        if(strlen($password) < 5){
+            throw new Exception("Passwords moet langer zijn dan 5 karakters.");
+        }
 
+        $this->password = $password;
         return $this;
     }
 
@@ -84,6 +95,9 @@ class User{
      */ 
     public function setFirstname($firstname)
     {
+        if(empty($firstname)){
+            throw new Exception("Voornaam mag niet leeg zijn");
+        }
         $this->firstname = $firstname;
 
         return $this;
@@ -94,6 +108,7 @@ class User{
      */ 
     public function getLastname()
     {
+        
         return $this->lastname;
     }
 
@@ -104,6 +119,9 @@ class User{
      */ 
     public function setLastname($lastname)
     {
+        if(empty($lastname)){
+            throw new Exception("Achternaam mag niet leeg zijn");
+        }
         $this->lastname = $lastname;
 
         return $this;
@@ -149,5 +167,36 @@ class User{
         $statement->bindValue(":password", $password);
         $statement->bindValue(":picture", $this->picture);
         $statement->execute();
+    }
+
+    public function getUserByEmail(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select id from users where email = :email");
+        $statement->bindValue(":email", $this->email);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    public function canLogin(){
+        $email = $this->getEmail();
+        $password = $this->getPassword();
+
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users where email = :email");
+        $statement->bindValue(":email", $email);
+        $statement->execute();
+        $user = $statement->fetch();
+        $hash = $user["password"];
+
+        if(!$user){
+            throw new Exception("Geen gebruiker gevonden");
+        }
+
+        if(password_verify($password,$hash)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
