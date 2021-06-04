@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
@@ -6,6 +7,12 @@ if(!isset($_SESSION['id'])){
     $id = $_SESSION["id"];
     
 }
+
+$models = Model::getAllModels();
+
+
+
+
 
 
 
@@ -40,16 +47,16 @@ if(!isset($_SESSION['id'])){
 </div>
 
 <div class="database">
-
+    <?php foreach($models as $m): ?>
     <div class="item">
-        <p class="item__name">Naam object</p>
-        <img class="item__img" src="images/skull.jpg" alt="3dmodel">
+        <p class="item__name"><?php echo htmlspecialchars($m["name"]) ?></p>
+        <img class="item__img" src="images/<?php echo $m["image"]; ?>" alt="3dmodel">
         <div class="item__link">
-            <a class="btn" href="model.php">Bekijk</a>
+            <a class="btn" href="model.php?model=<?php echo $m["id"] ?>">Bekijk</a>
         </div>
         
     </div>
-
+    <?php endforeach; ?>
 </div>
 
 

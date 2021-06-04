@@ -1,5 +1,5 @@
 <?php
-
+include_once(__DIR__ . "/Db.php");
 class Model{
     private $name; 	
     private $image;
@@ -105,5 +105,23 @@ class Model{
         $this->user_id = $user_id;
 
         return $this;
+    }
+
+    public static function getAllModels(){
+        
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from models");
+        
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
+
+    public static function getModelById($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from models where id = :id");
+        $statement->bindvalue("id", $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

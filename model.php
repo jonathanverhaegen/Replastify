@@ -1,9 +1,22 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
 }else{
     $id = $_SESSION["id"];
+    
+}
+
+if(!empty($_GET)){
+    $modelId = $_GET["model"];
+    $model = Model::getModelById($modelId);
+
+    
+    $user = User::getUserById($model["user_id"]);
+    
+
+    
     
 }
 
@@ -33,20 +46,20 @@ if(!isset($_SESSION['id'])){
 
 
     <div class="model">
-        <p class="model__name">Naam object</p>
-        <p class="model__owner">Posted by: Jonathan Verhaegen</p>
+        <p class="model__name"><?php echo htmlspecialchars($model["name"]) ?></p>
+        <p class="model__owner">Posted by: <?php echo htmlspecialchars($user["username"]) ?></p>
 
         <div class="model__info">
-        <img class="model__img" src="images/skull.jpg" alt="3dmodel">
-        <p class="model__description" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis massa id quam congue semper. Nulla nisi arcu, lacinia sed nunc at, fringilla volutpat libero. Phasellus et blandit dolor, a porta eros.</p>
+        <img class="model__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="3dmodel">
+        <p class="model__description" ><?php echo htmlspecialchars($model["description"]) ?></p>
         </div>
 
         <div class="model__extra">
             <div class="model__preview">
-                <img class="model__preview__img" src="images/skull.jpg" alt="">
-                <img class="model__preview__img" src="images/skull.jpg" alt="">
-                <img class="model__preview__img" src="images/skull.jpg" alt="">
-                <img class="model__preview__img" src="images/skull.jpg" alt="">
+                <img class="model__preview__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="">
+                <img class="model__preview__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="">
+                <img class="model__preview__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="">
+                <img class="model__preview__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="">
             </div>
             <div class="model__btns">
                 <a class="btn model__print" href="">Printen</a>

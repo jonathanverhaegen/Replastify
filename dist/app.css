@@ -534,6 +534,32 @@ form {
   margin-top: 50px;
 }
 
+.form--order {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.form__group--order {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.form__label--order {
+  justify-self: flex-start;
+}
+
+.form__input--order {
+  justify-self: flex-end;
+}
+
 .searchbar {
   background-color: #f5f5f5;
   display: grid;
@@ -1155,6 +1181,11 @@ form {
   text-decoration: none;
 }
 
+.order--printer {
+  display: flex;
+  flex-direction: row;
+}
+
 .order__avatar {
   height: 100px;
   width: 100px;
@@ -1187,6 +1218,105 @@ form {
 
 .order__status--alert {
   color: #A31621;
+}
+
+.order__link {
+  color: #25291C;
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+  text-decoration: none;
+  margin-left: 10%;
+}
+
+.order__btn {
+  margin-left: 5%;
+}
+
+.order--spec {
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 4fr 2fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.order__username--spec {
+  grid-column-start: 2fr;
+}
+
+.order__name--spec {
+  grid-column-start: 3;
+  text-align: left;
+  padding-left: 0px;
+}
+
+.order__btns {
+  display: flex;
+  gap: 20px;
+}
+
+.order__image {
+  padding: 20px;
+  height: 500px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-row-start: 2;
+  grid-column: 1/span 4;
+}
+
+.order__download {
+  grid-row-start: 3;
+  grid-column: 4/span 5;
+}
+
+.order__accept {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-bottom: 150px;
+}
+
+.order__accept__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+  align-items: center;
+}
+
+.printer__container {
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.printer__image {
+  width: 100px;
+  height: 100px;
+  border-radius: 70%;
+  object-fit: cover;
+}
+
+.printer__name {
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+  color: #004EA8;
+  margin-left: 20px;
+}
+
+.printer__menu {
+  margin-left: 50%;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.printer__link {
+  color: #25291C;
+  text-decoration: none;
+  font-family: "Comfortaa", cursive;
 }
 
 .title {

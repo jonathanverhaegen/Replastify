@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__ . "/Db.php");
 
 class Order{
     private $user_id; 	
@@ -84,5 +85,21 @@ class Order{
         $this->model_id = $model_id;
 
         return $this;
+    }
+
+    public static function getOrdersForPrinter($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users INNER JOIN opdrachten ON  `users`.`id` =`opdrachten`.`user_id`  where printer_id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getOrderById($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from opdrachten INNER JOIN `users` ON `opdrachten`.`user_id` = `users`.`id` where `opdrachten`.`id` = :id ");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
