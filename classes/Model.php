@@ -116,7 +116,7 @@ class Model{
     public static function getAllModels(){
         
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select * from models");
+        $statement = $conn->prepare("select * from models order by time desc");
         
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -145,9 +145,18 @@ class Model{
 
     public static function getPopModels(){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select * from models limit 4");
+        $statement = $conn->prepare("select * from models order by time desc limit 4");
         
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function searchModels($input){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM `models` WHERE `name` LIKE :input OR `description` LIKE :input order by time desc ");
+        $statement->bindValue(":input", "%".$input."%");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+
     }
 }

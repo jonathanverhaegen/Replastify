@@ -43,10 +43,10 @@ $models = Model::GetPopModels();
 <div class="cardwheel">
     <?php foreach($models as $m) : ?>
     <div class="item">
-        <p class="item__name">Naam object</p>
-        <img class="item__img" src="images/skull.jpg" alt="3dmodel">
+        <p class="item__name"><?php echo htmlspecialchars($m["name"]) ?></p>
+        <img class="item__img" src="images/<?php echo htmlspecialchars($m["image"]) ?>" alt="3dmodel">
         <div class="item__link">
-            <a class="btn" href="model.php">Bekijk</a>
+            <a class="btn" href="model.php?model=<?php echo htmlspecialchars($m["id"]) ?>">Bekijk</a>
         </div>
         
     </div>

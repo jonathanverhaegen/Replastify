@@ -10,6 +10,13 @@ if(!isset($_SESSION['id'])){
 
 $models = Model::getAllModels();
 
+if(!empty($_POST)){
+    $searchModels = Model::searchModels($_POST["search"]);
+    var_dump($searchModels);
+}
+
+
+
 
 
 
@@ -46,6 +53,8 @@ $models = Model::getAllModels();
     <a class="searchbar__link" href="uploadmodel.php">Model uploaden</a>
 </div>
 
+<?php if(!isset($searchModels)): ?>
+
 <div class="database">
     <?php foreach($models as $m): ?>
     <div class="item">
@@ -58,6 +67,23 @@ $models = Model::getAllModels();
     </div>
     <?php endforeach; ?>
 </div>
+<?php endif; ?>
+
+<?php if(isset($searchModels)): ?>
+    <div class="database">
+    <?php foreach($searchModels as $m): ?>
+    <div class="item">
+        <p class="item__name"><?php echo htmlspecialchars($m["name"]) ?></p>
+        <img class="item__img" src="images/<?php echo $m["image"]; ?>" alt="3dmodel">
+        <div class="item__link">
+            <a class="btn" href="model.php?model=<?php echo $m["id"] ?>">Bekijk</a>
+        </div>
+        
+    </div>
+    <?php endforeach; ?>
+</div>
+
+<?php endif; ?>
 
 
 
