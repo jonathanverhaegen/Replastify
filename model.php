@@ -63,7 +63,7 @@ if(!empty($_GET)){
             </div>
             <div class="model__btns">
                 <a class="btn model__print" href="">Printen</a>
-                <a class="btn model__share" href="">Deel</a>
+                <a class="btn model__share" href="community.php?model=<?php echo $model["id"] ?>">Deel</a>
             </div>
         </div>
 

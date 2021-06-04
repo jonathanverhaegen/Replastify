@@ -46,9 +46,9 @@ if($user["type"] === "printer"){
     <img class="printer__image" src="images/<?php echo $user["avatar"] ?>" alt="">
     <p class="printer__name"><?php echo htmlspecialchars($user["username"]) ?></p>
     <div class="printer__menu">
-        <a class="printer__link" href="">Bestellingen</a>
-        <a class="printer__link" href="">Chat</a>
-        <a class="printer__link" href="">Instellingen</a>
+        <a class="printer__link" href="verkoperspaneel.php">Bestellingen</a>
+        <a class="printer__link" href="printerchat.php">Chat</a>
+        <a class="printer__link" href="profiel.php">Instellingen</a>
     </div>
 </div>
 

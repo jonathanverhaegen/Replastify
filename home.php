@@ -1,12 +1,17 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
+session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: login.php");
+}else{
+    $id = $_SESSION["id"];
+    
+}
 
-    session_start();
-        if(!isset($_SESSION['id'])){
-            header("Location: login.php");
-        }else{
-            $id = $_SESSION["id"];
-            
-        }
+$models = Model::GetPopModels();
+
+
+    
 
 
 ?><!DOCTYPE html>
@@ -36,6 +41,7 @@
 <div class="cardwheel__container">
 
 <div class="cardwheel">
+    <?php foreach($models as $m) : ?>
     <div class="item">
         <p class="item__name">Naam object</p>
         <img class="item__img" src="images/skull.jpg" alt="3dmodel">
@@ -44,10 +50,11 @@
         </div>
         
     </div>
+    <?php endforeach; ?>
+</div>
 </div>
 <div class="cardwheel__btn">
     <a class="btn" href="">Modellen zoeken</a>
-</div>
 </div>
 
 

@@ -22,6 +22,9 @@ class Model{
      */ 
     public function setName($name)
     {
+        if(empty($name)){
+            throw new Exception("name mag niet leeg zijn");
+        }
         $this->name = $name;
 
         return $this;
@@ -62,6 +65,9 @@ class Model{
      */ 
     public function setModel($model)
     {
+        if(empty($model)){
+            throw new Exception("Model mag niet leeg zijn");
+        }
         $this->model = $model;
 
         return $this;
@@ -123,5 +129,25 @@ class Model{
         $statement->bindvalue("id", $id);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function saveModel(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("INSERT INTO models (`name`,`image`,`3dmodel`,`description`,`user_id`,`time`) values (:name, :image, :model, :description, :user_id, sysdate())");
+        $statement->bindvalue("name", $this->name);
+        $statement->bindvalue("image", $this->image);
+        $statement->bindvalue("model", $this->model);
+        $statement->bindvalue("description", $this->description);
+        $statement->bindvalue("user_id", $this->user_id);
+        $statement->execute();
+        
+    }
+
+    public static function getPopModels(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from models limit 4");
+        
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
