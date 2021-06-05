@@ -5,7 +5,10 @@ class Order{
     private $user_id; 	
     private $printer_id; 	
     private $price; 	
-    private $model_id; 
+    private $model_id;
+    private $title; 
+    private $description;
+    private $ready;
 
     /**
      * Get the value of user_id
@@ -101,5 +104,80 @@ class Order{
         $statement->bindValue(":id", $id);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Get the value of title
+     */ 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of title
+     *
+     * @return  self
+     */ 
+    public function setTitle($title)
+    {
+        if(empty($title)){
+            throw new Exception("Titel mag niet leeg zijn");
+        }
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ready
+     */ 
+    public function getReady()
+    {
+        return $this->ready;
+    }
+
+    /**
+     * Set the value of ready
+     *
+     * @return  self
+     */ 
+    public function setReady($ready)
+    {
+        $this->ready = $ready;
+
+        return $this;
+    }
+
+    public function saveOrder(){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("insert into opdrachten (user_id, printer_id, model_id, time, title, description, ready) values (:user_id, :printer_id, :model_id, sysdate(), :title, :description, :ready)");
+        $statement->bindvalue(":user_id", $this->user_id);
+        $statement->bindvalue(":printer_id", $this->printer_id);
+        $statement->bindvalue(":model_id", $this->model_id);
+        $statement->bindvalue(":title", $this->title);
+        $statement->bindvalue(":description", $this->description);
+        $statement->bindvalue(":ready", $this->ready);
+        $statement->execute();
     }
 }

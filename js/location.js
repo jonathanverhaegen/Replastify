@@ -146,8 +146,11 @@ const getPrinterById = (id) => {
                 console.log('Success:', result);
             let username = result.printer.username;
             let street = result.printer.street;
+            let id = result.printer.id;
             document.querySelector('#printer').value = username;
             document.querySelector('#adres').value = street;
+            let link = document.querySelector('#printerBtn').href;
+            document.querySelector('#printerBtn').href = link + `&printer=${id}`;
 
             })   
             .catch(error => {

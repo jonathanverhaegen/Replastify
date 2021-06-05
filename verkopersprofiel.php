@@ -1,9 +1,40 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
 }else{
     $id = $_SESSION["id"];
+    
+}
+
+if(!empty($_GET)){
+    $printerid = $_GET["printer"];
+    $printer = User::getUserById($printerid);
+    
+    $projects = Order::getOrdersForPrinter($printerid);
+    var_dump($projects);
+
+    $modelid = $_GET["model"];
+    
+    
+}
+
+if(!empty($_POST)){
+
+    try{
+        $order = new Order();
+        $order->setTitle($_POST["title"]);
+        $order->setDescription($_POST['description']);
+        $order->setUser_id($id);
+        $order->setPrinter_id($printerid);
+        $order->setModel_id($modelid);
+        $order->setReady($_POST["date"]);
+        $order->saveOrder();
+    }catch(\Throwable $th){
+        $error = $th->getMessage();
+    }
+
     
 }
 
@@ -32,37 +63,32 @@ if(!isset($_SESSION['id'])){
 
 <div class="verkoper">
     <div class="verkoper__info">
-        <img class="verkoper__avatar" src="images/skull.jpg" alt="avatar">
-        <p class="verkoper__username">Jonathan Verhaegen</p>
-        <p class="verkoper__description">Ik ben Simon en werk al 3 jaar als elektricien bij 
-de NMBS. Ik ben een echte doe-het-zelver en klus
-graag bij in mijn vrije tijd. Door deze passie ben
-ik ook in deze branche terecht gekomen.
-</p>
+        <img class="verkoper__avatar" src="images/<?php echo htmlspecialchars($printer["avatar"]); ?>" alt="avatar">
+        <p class="verkoper__username"><?php echo htmlspecialchars($printer["username"]); ?></p>
+        <p class="verkoper__description"><?php echo htmlspecialchars($printer["description"]); ?></p>
     </div>
 
     <div class="verkoper__projects">
+        <?php foreach($projects as $p): 
+            $model = Model::getModelById($p["model_id"]);
+            
+        ?>
         <div class="project">
-            <img class="project__img" src="images/skull.jpg" alt="project">
-            <p class="project__name">Project 1</p>
+            <img class="project__img" src="images/<?php echo htmlspecialchars($model["image"]); ?>" alt="project">
+            <p class="project__name"><?php echo htmlspecialchars($p["title"]); ?></p>
         </div>
-        <div class="project">
-            <img class="project__img" src="images/skull.jpg" alt="project">
-            <p class="project__name">Project 1</p>
-        </div>
-        <div class="project">
-            <img class="project__img" src="images/skull.jpg" alt="project">
-            <p class="project__name">Project 1</p>
-        </div>
-        <div class="project">
-            <img class="project__img" src="images/skull.jpg" alt="project">
-            <p class="project__name">Project 1</p>
-        </div>
+        <?php endforeach; ?>
+       
+        
     </div>
 
 </div>
 
 <div class="form__container form__container--large">
+<?php if(!empty($error)): ?>
+    <p class="form__alert"><?php echo $error; ?></p>
+<?php endif; ?>  
+
 
     <h1 class="subtitle subtitle--middle">Bestelling plaatsen</h1>
    

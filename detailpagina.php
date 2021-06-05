@@ -100,7 +100,7 @@ if(!empty($_POST)){
 
         <div class=" form__group form__group--right form__group--center">
             <div class="form__btns">
-            <input class="btn" type="submit" >
+            <a id="printerBtn" class="btn" href="verkopersprofiel.php?model=<?php echo $modelid ?>">Printen</a>
             </div>
         </div>
     </form>
