@@ -64,3 +64,50 @@
     font-family: $mont;
     font-size: $plaintext;
 }
+
+.detail__city, .detail__adress{
+    color: $pinetree;
+    font-family: $mont;
+    font-size: $plaintext;
+}
+
+.detail__adress{
+    margin-top:10px;
+}
+
+.detail__container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detail__printer{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    text-decoration: none;
+    margin-bottom:10px;
+    background-color:white;
+    padding:10px;
+}
+
+.detail__printer__img{
+    width:75px;
+    height:75px;
+    border-radius: 70%;
+    object-fit: cover;
+    
+}
+
+.detail__printer__name{
+    color: $pinetree;
+    font-family: $comfortaa;
+    font-size: $plaintext;
+}
+
+.detail__printer__adress{
+    color: $pinetree;
+    font-family: $mont;
+    font-size: $plaintext;
+}

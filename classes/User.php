@@ -383,4 +383,12 @@ class User{
         $statement->bindValue(":email", $this->email);
         $statement->execute(PDO::FETCH_ASSOC);
     }
+
+    public static function getUsersByCity($city){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users where city = :city AND type = 'printer'");
+        $statement->bindValue(":city", $city);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

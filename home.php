@@ -54,7 +54,7 @@ $models = Model::GetPopModels();
 </div>
 </div>
 <div class="cardwheel__btn">
-    <a class="btn" href="">Modellen zoeken</a>
+    <a class="btn" href="database.php">Modellen zoeken</a>
 </div>
 
 

@@ -12,7 +12,7 @@ $models = Model::getAllModels();
 
 if(!empty($_POST)){
     $searchModels = Model::searchModels($_POST["search"]);
-    var_dump($searchModels);
+    
 }
 
 
