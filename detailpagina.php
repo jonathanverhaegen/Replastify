@@ -18,7 +18,7 @@ if(!empty($_GET)){
 if(!empty($_POST)){
     $city = $_POST["search"];
     $printers = User::getUsersByCity($city);
-    var_dump($printers);
+    
 }
 
 

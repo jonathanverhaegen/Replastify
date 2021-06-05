@@ -106,6 +106,14 @@ class Order{
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getOrderForUserById($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from opdrachten INNER JOIN `users` ON `opdrachten`.`printer_id` = `users`.`id` where `opdrachten`.`id` = :id ");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
     /**
      * Get the value of title
      */ 
@@ -178,6 +186,22 @@ class Order{
         $statement->bindvalue(":title", $this->title);
         $statement->bindvalue(":description", $this->description);
         $statement->bindvalue(":ready", $this->ready);
+        $statement->execute();
+    }
+
+    public static function getOrdersForUser($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users INNER JOIN opdrachten ON  `users`.`id` =`opdrachten`.`printer_id` where user_id = :id order by time desc ");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function updateStatus($status, $id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update opdrachten set status = :status where id = :id");
+        $statement->bindValue(":status", $status);
+        $statement->bindValue(":id", $id);
         $statement->execute();
     }
 }

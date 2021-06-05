@@ -1,4 +1,15 @@
+<?php 
 
+
+if(isset($id)){
+    $user = User::getUserById($id);
+}else{
+    $user = ["type" => "user"];
+}
+
+
+
+?>
 <header>
     <nav>
 
@@ -32,7 +43,14 @@
                 <a class="menu__link"  href="database.php">3D modellen</a>
                 <a class="menu__link"  href="webshop.php">Filament</a>
                 <a class="menu__link"  href="community.php">Community</a>
+                <?php if($user["type"] === "printer"):?>
                 <a class="menu__link"  href="verkoperspaneel.php">Verkoperspaneel</a>
+                <?php endif;?>
+
+                <?php if($user["type"] === "user"):?>
+                <a class="menu__link"  href="orders.php">Bestellingen</a>
+                <?php endif;?>
+
                 <a class="menu__link"  href="profiel.php">Profiel</a>
             
         </div>

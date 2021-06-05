@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");

@@ -13,9 +13,10 @@ if(!empty($_GET)){
     $printer = User::getUserById($printerid);
     
     $projects = Order::getOrdersForPrinter($printerid);
-    var_dump($projects);
+    
 
     $modelid = $_GET["model"];
+    $model = Model::getModelById($modelid);
     
     
 }
@@ -31,6 +32,7 @@ if(!empty($_POST)){
         $order->setModel_id($modelid);
         $order->setReady($_POST["date"]);
         $order->saveOrder();
+        header("Location: orders.php");
     }catch(\Throwable $th){
         $error = $th->getMessage();
     }
@@ -70,11 +72,11 @@ if(!empty($_POST)){
 
     <div class="verkoper__projects">
         <?php foreach($projects as $p): 
-            $model = Model::getModelById($p["model_id"]);
+            $m = Model::getModelById($p["model_id"]);
             
         ?>
         <div class="project">
-            <img class="project__img" src="images/<?php echo htmlspecialchars($model["image"]); ?>" alt="project">
+            <img class="project__img" src="images/<?php echo htmlspecialchars($m["image"]); ?>" alt="project">
             <p class="project__name"><?php echo htmlspecialchars($p["title"]); ?></p>
         </div>
         <?php endforeach; ?>
@@ -92,7 +94,7 @@ if(!empty($_POST)){
 
     <h1 class="subtitle subtitle--middle">Bestelling plaatsen</h1>
    
-    <form class="form" action="" method="post">
+    <form class="form form__group--printer" action="" method="post">
 
         <label class="form__label form__label--left form__label--black" for="title">Titel</label>
         <input class="form__input form__input--middle" type="text"  name="title">
@@ -100,19 +102,12 @@ if(!empty($_POST)){
         <label class="form__label form__label--left form__label--black" for="description">Omschrijving</label>
         <input class="form__input form__input--middle" type="text"  name="description">
 
-        
-        <div class="form__group form__group--row">
-        <label class="form__label form__label--left form__label--black" for="model">3D-model</label>
-        <input class="form__input"  type="file">
+        <div class="form__img__container">
+            <img class="form__img" src="images/<?php echo $model["image"] ?>" alt="">
         </div>
 
-        <div class="form__group form__group--row">
-        <label class="form__label form__label--left form__label--black" for="picture">Foto</label>
-        <input class="form__input"  type="file">
-        </div>
-
-        <div class="form__group form__group--row">
-        <label class="form__label form__label--left form__label--black" for="date">Maximale wachtijd</label>
+        <div class="form__group form__group--row form__group--order">
+        <label class="form__label form__label--black" for="date">Maximale wachtijd</label>
         <input class="form__input" name="date"  type="date">
         </div>
         

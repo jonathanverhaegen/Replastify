@@ -10,11 +10,10 @@ if(!isset($_SESSION['id'])){
 
 $user = User::getUserById($id);
 
-if($user["type"] === "user"){
-    echo "mag dit niet zien";
-}
+
 if($user["type"] === "printer"){
     $orders = Order::getOrdersForPrinter($id);
+    $isPintrer = true;
     
 }
 
@@ -38,6 +37,8 @@ if($user["type"] === "printer"){
 
 <div class="container">
 
+<?php if(isset($isPintrer)): ?>
+
 <div class="printer__container">
     <img class="printer__image" src="images/<?php echo $user["avatar"] ?>" alt="">
     <p class="printer__name"><?php echo htmlspecialchars($user["username"]) ?></p>
@@ -51,14 +52,27 @@ if($user["type"] === "printer"){
 <h1 class="subtitle subtitle--middle">Inkomende bestellingen</h1>
 
 <div class="order__container">
-    <?php foreach($orders as $o): ?>
-    
+    <?php foreach($orders as $o):
+        $status = $o["status"];
+        echo $status;
+    ?>
+        
     <div class="order order--printer ">
         <img class="order__avatar" src="images/<?php echo $o["avatar"] ?>" alt="">
         <p style="margin-left:10px;" class="order__username"><?php echo htmlspecialchars($o["username"]) ?></p>
         <p class="order__name"><?php echo htmlspecialchars($o["title"]) ?></p>
-        <a class="btn order__btn" href="">Goedkeuren</a>
-        <a class="btn btn--alert order__btn" href="">Weigeren</a>
+        
+        <?php if($status === "0"): ?>
+        <div id="btns">
+        <a data-orderid="<?php echo $o["id"] ?>" class="btn order__btn" id="btnGood" href="">Goedkeuren</a>
+        <a data-orderid="<?php echo $o["id"] ?>" class="btn btn--alert order__btn" id="btnBad" href="">Weigeren</a>
+        </div>
+        <?php endif; ?>
+
+        <?php if($status === "1"): ?>
+        <p class="order__status order__status--good">Goedgekeurd</p>
+        <?php endif; ?>
+        
         <a class="order__link" href="printerorder.php?order=<?php echo $o["id"] ?>">Bekijk Order</a>
     </div>
     
@@ -67,9 +81,13 @@ if($user["type"] === "printer"){
 </div>
 
     
+<?php endif; ?>
+
 
 </div>
 <?php include_once("footer.inc.php") ?>
+
+<script src="js/orders.js"></script>
     
 </body>
 </html>

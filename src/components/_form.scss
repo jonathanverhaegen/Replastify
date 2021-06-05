@@ -313,3 +313,23 @@ form{
     justify-self: flex-end;
 }
 
+.form__group--order{
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.form__img__container{
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.form__img{
+    width:100%;
+    border-radius:10px;
+}
+
+.form__input--order{
+    margin-bottom:0px;
+}
+

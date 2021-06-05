@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__."/includes/autoloader.inc.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
@@ -6,6 +7,9 @@ if(!isset($_SESSION['id'])){
     $id = $_SESSION["id"];
     
 }
+
+$orders = Order::getOrdersForUser($id);
+
 
 
 
@@ -33,27 +37,38 @@ if(!isset($_SESSION['id'])){
     </div>
 
 <div class="order__container">
+    <?php foreach($orders as $o):
 
-    <a class="order" href="">
-        <img class="order__avatar" src="images/skull.jpg" alt="avatar">
-        <p class="order__username">Jonathan Verhaegen</p>
-        <p class="order__name">Vintage Knop</p>
-        <p class="order__status">In afwachting</p>
+        switch($o["status"]){
+            case 0:
+                $status = "In afwachting";
+                $style = "order__status";
+                break;
+            case 1:
+                $status = "Geaccepteerd";
+                $style = "order__status order__status--good";
+                break;
+            case 2:
+                $status = "Betaald";
+                $style = "order__status order__status--good";
+                break;
+            case 3:
+                $status = "Geweigerd";
+                $style = "order__status order__status--alert";
+                break;
+        }
+
+    ?>
+
+    <a data-orderid="<?php echo $o["id"] ?>" class="order" href="orderdetail.php?order=<?php echo $o["id"] ?>">
+        <img class="order__avatar" src="images/<?php echo htmlspecialchars($o["avatar"]); ?>" alt="avatar">
+        <p class="order__username"><?php echo htmlspecialchars($o["username"]); ?></p>
+        <p class="order__name"><?php echo htmlspecialchars($o["title"]); ?></p>
+        <p class="<?php echo $style ?>"><?php echo htmlspecialchars($status); ?></p>
     </a>
+    <?php endforeach; ?>
     
-    <a class="order" href="">
-        <img class="order__avatar" src="images/skull.jpg" alt="avatar">
-        <p class="order__username">Jonathan Verhaegen</p>
-        <p class="order__name">Vintage Knop</p>
-        <p class="order__status order__status--good">Geaccepteerd</p>
-    </a>
-
-    <a class="order" href="">
-        <img class="order__avatar" src="images/skull.jpg" alt="avatar">
-        <p class="order__username">Jonathan Verhaegen</p>
-        <p class="order__name">Vintage Knop</p>
-        <p class="order__status order__status--alert">Geweigerd</p>
-    </a>
+    
 
 </div>
 
