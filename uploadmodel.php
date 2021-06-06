@@ -38,7 +38,7 @@ if(!empty($_POST)){
                     $model->setImage($fileNameNew);
 
                 }else{
-                    $error = "avatar is to big";
+                    $error = "model is to big";
                 }
             }else{
                 $error = "there was an error uplaoding the image";

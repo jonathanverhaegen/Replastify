@@ -10,14 +10,141 @@ if(!isset($_SESSION['id'])){
 
 $user = User::getUserById($id);
 
+if(!empty($_GET)){
+    $get = true;
+    $modelid = $_GET["model"];
+    $model = Model::getModelById($modelid);
 
+    if(!empty($_POST)){
+        $post = new Post();
+        $post->setText($_POST["description"]);
+        $post->setModel($_POST["modelprev"]);
+        $picture = $_FILES["image"];
+        
+        
+        $fileName = $picture['name'];
+        $fileTmpName = $picture['tmp_name'];
+        $fileSize = $picture["size"];
+        $fileError = $picture['error'];
+        $fileType = $picture["type"];
+        $fileExt = explode(".", $fileName);
+        $fileActExt = strtolower(end($fileExt));
+        $allowed = array("jpg", "png", "jpeg");
+            
+            if(in_array($fileActExt, $allowed)){
+                if($fileError === 0){
+                    if($fileSize < 100000000000){
+    
+                        $fileNameNew = uniqid('', true).".".$fileActExt;
+    
+                        $fileDestination = 'images/'.$fileNameNew;
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $post->setImage($fileNameNew);
+                        
+    
+                    }else{
+                        $error = "avatar is to big";
+                    }
+                }else{
+                    $error = "there was an error uplaoding the image";
+                }
+    
+            }else{
+                $error = "file is not supported";
+            }
 
+        $post->savePost($id);
+        header("Location: community.php");
+        
+    }
 
-if(!empty($_POST)){
-    $post = new Post();
-    $post->setText($_POST["description"]);
-    $post->savePost($id);
+}else{
+
+    if(!empty($_POST)){
+        $post = new Post();
+        $post->setText($_POST["description"]);
+        
+        
+        $picture = $_FILES["image"];
+        
+        
+        $fileName = $picture['name'];
+        $fileTmpName = $picture['tmp_name'];
+        $fileSize = $picture["size"];
+        $fileError = $picture['error'];
+        $fileType = $picture["type"];
+        $fileExt = explode(".", $fileName);
+        $fileActExt = strtolower(end($fileExt));
+        $allowed = array("jpg", "png", "jpeg");
+            
+            if(in_array($fileActExt, $allowed)){
+                if($fileError === 0){
+                    if($fileSize < 100000000000){
+    
+                        $fileNameNew = uniqid('', true).".".$fileActExt;
+    
+                        $fileDestination = 'images/'.$fileNameNew;
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $post->setImage($fileNameNew);
+                        
+    
+                    }else{
+                        $error = "avatar is to big";
+                    }
+                }else{
+                    $error = "there was an error uplaoding the image";
+                }
+    
+            }else{
+                $error = "file is not supported";
+            }
+    
+            $body = $_FILES["model"];
+            
+    
+            $fileName = $body['name'];
+            $fileTmpName = $body['tmp_name'];
+            $fileSize = $body["size"];
+            $fileError = $body['error'];
+            $fileType = $body["type"];
+            $fileExt = explode(".", $fileName);
+            $fileActExt = strtolower(end($fileExt));
+            $allowed = array("stl", "ipt");
+            
+            if(in_array($fileActExt, $allowed)){
+                if($fileError === 0){
+                    if($fileSize < 1000000000000000000){
+    
+                        $fileNameNew = uniqid('', true).".".$fileActExt;
+    
+                        $fileDestination = 'models/'.$fileNameNew;
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $post->setModel($fileNameNew);
+    
+                    }else{
+                        $error = "model is to big";
+                    }
+                }else{
+                    $error = "there was an error uploading the model";
+                }
+    
+            }else{
+                $error = "file is not supported";
+            }
+    
+            $post->savePost($id);
+    }
+
 }
+
+
+
+
+
+
+
+
+
 
 $posts = Post::getAllPosts();
 
@@ -51,22 +178,99 @@ $posts = Post::getAllPosts();
     </select>
 </div>
 
+<?php if(!isset($get)): ?>
 <div class="community__header_container">
     <div class="community__header">
         <img class="community_header__image" src="images/<?php echo $user["avatar"]; ?>" alt="avatar">
         <input class="form__input form__input--post" type="text" placeholder="type somthing" id="input">
     </div>
 </div>
+<?php endif; ?>
+
+<?php if(isset($get)): ?>
+<div class="popup__post__get">
+    <form class="form" action="" method="post" enctype="multipart/form-data">
+        <span class="form__close"><a class="close" href="model.php?model=<?php echo $modelid ?>">&times;</a></span>
+        <div class="form__header">
+            <img class="form__avatar" src="images/<?php echo $user["avatar"]; ?>" alt="">
+            <p class="form__subtitle">Nieuw bericht</p>
+        </div>
+        <div class="popup__preview">
+         
+        </div>
+
+        <div class="popup__preview__model">
+        <?php if(isset($get)): ?> 
+            <a class="post__model" id='previewModel' href="./models" download="<?php echo $model["id"] ?>"><?php echo htmlspecialchars($model["name"]); ?></a>
+            <input type="text" style="display: none;" name="modelprev" id="modelprev" value="<?php echo $model["3dmodel"]; ?>">
+        <?php endif ?>
+        </div>
+        
+
+        <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" placeholder="Typ je bericht"></textarea>
+        
+        <div class="form__files">
+            <div class="image__upload">
+                <label for="image">
+                    <img class="upload-img" src="images/image.svg" alt="images">
+                </label>
+                <input id="image" style="display:none;" name="image" type="file">
+            </div>
+
+            <?php if(!isset($get)) : ?>
+            <div class="image__upload">
+                <label for="model">
+                    <img class="upload-img" src="images/model.svg" alt="images">
+                </label>
+                <input id="model" style="display:none;" name="model" type="file">
+            </div>
+            <?php endif; ?>
+        </div>
+        <div class="form__btn form__btn--left">
+        <input class="btn" type="submit">
+        </div>
+    </form>
+</div>
+<?php endif ?>
 
 <div class="popup__post">
-    <form class="form" action="" method="post">
+    <form class="form" action="" method="post" enctype="multipart/form-data">
         <span class="form__close"><a class="close" href="">&times;</a></span>
         <div class="form__header">
             <img class="form__avatar" src="images/<?php echo $user["avatar"]; ?>" alt="">
             <p class="form__subtitle">Nieuw bericht</p>
         </div>
+        <div class="popup__preview">
+         
+        </div>
+
+        <div class="popup__preview__model">
+        <?php if(isset($get)): ?> 
+            <a class="post__model" id='previewModel' href="./models" download="<?php echo $model["id"] ?>"><?php echo htmlspecialchars($model["name"]); ?></a>
+            <input type="text" style="display: none;" name="modelprev" id="modelprev" value="<?php echo $model["3dmodel"]; ?>">
+        <?php endif ?>
+        </div>
+        
+
         <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" placeholder="Typ je bericht"></textarea>
         
+        <div class="form__files">
+            <div class="image__upload">
+                <label for="image">
+                    <img class="upload-img" src="images/image.svg" alt="images">
+                </label>
+                <input id="image" style="display:none;" name="image" type="file">
+            </div>
+
+            <?php if(!isset($get)) : ?>
+            <div class="image__upload">
+                <label for="model">
+                    <img class="upload-img" src="images/model.svg" alt="images">
+                </label>
+                <input id="model" style="display:none;" name="model" type="file">
+            </div>
+            <?php endif; ?>
+        </div>
         <div class="form__btn form__btn--left">
         <input class="btn" type="submit">
         </div>
@@ -95,9 +299,15 @@ $posts = Post::getAllPosts();
             <p class="post__username"><?php echo htmlspecialchars($p['username']) ?></p>
         </div>
         <p class="post__description"><?php echo htmlspecialchars($p['text']) ?></p>
-        <?php if(isset($p["images"])): ?>
+        <?php if(!empty($p["image"])): ?>
         <div class="post__image__holder">
-            <img class="post__image" src="images/skull.jpg" alt="">
+            <img class="post__image" src="images/<?php echo htmlspecialchars($p["image"]) ?>" alt="">
+        </div>
+        <?php endif; ?>
+
+        <?php if(!empty($p["model"])): ?>
+        <div class="post__model__container">
+        <a class="post__model" href="./models" download="<?php echo $p["model"]; ?>">download model</a>
         </div>
         <?php endif; ?>
 
@@ -139,6 +349,7 @@ $posts = Post::getAllPosts();
 <?php include_once("footer.inc.php") ?>
 
 <script src="js/community.js"></script>
+<script src="js/preview.js"></script>
     
 </body>
 </html>

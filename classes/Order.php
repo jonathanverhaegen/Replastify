@@ -98,6 +98,14 @@ class Order{
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getOrdersForPrinterLimit($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from users INNER JOIN opdrachten ON  `users`.`id` =`opdrachten`.`user_id`  where printer_id = :id order by time desc limit 4");
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function getOrderById($id){
         $conn = Db::getConnection();
         $statement = $conn->prepare("select * from opdrachten INNER JOIN `users` ON `opdrachten`.`user_id` = `users`.`id` where `opdrachten`.`id` = :id ");

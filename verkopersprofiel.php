@@ -12,7 +12,7 @@ if(!empty($_GET)){
     $printerid = $_GET["printer"];
     $printer = User::getUserById($printerid);
     
-    $projects = Order::getOrdersForPrinter($printerid);
+    $projects = Order::getOrdersForPrinterLimit($printerid);
     
 
     $modelid = $_GET["model"];
@@ -67,7 +67,7 @@ if(!empty($_POST)){
     <div class="verkoper__info">
         <img class="verkoper__avatar" src="images/<?php echo htmlspecialchars($printer["avatar"]); ?>" alt="avatar">
         <p class="verkoper__username"><?php echo htmlspecialchars($printer["username"]); ?></p>
-        <p class="verkoper__description"><?php echo htmlspecialchars($printer["description"]); ?></p>
+        <p class="verkoper__description"><?php echo htmlspecialchars($printer["bio"]); ?></p>
     </div>
 
     <div class="verkoper__projects">

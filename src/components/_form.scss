@@ -186,6 +186,15 @@ form{
     
 }
 
+.popup__post__get{
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: $background;
+    padding:20px;
+    
+}
+
 .form__header{
     display:flex;
     align-items: center;
@@ -214,6 +223,7 @@ form{
 
 .close{
     text-decoration: none;
+    color: $pinetree;
 }
 
 .form__textarea{
@@ -340,5 +350,16 @@ form{
 
 .form__alert--pass{
     grid-column: 1 /span 5;
+}
+
+.form__files{
+    display:flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.upload-img{
+    width:75px;
+    height:75px;
 }
 

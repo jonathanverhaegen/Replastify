@@ -436,6 +436,14 @@ form {
   display: none;
 }
 
+.popup__post__get {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
 .form__header {
   display: flex;
   align-items: center;
@@ -464,6 +472,7 @@ form {
 
 .close {
   text-decoration: none;
+  color: #25291C;
 }
 
 .form__textarea {
@@ -588,6 +597,17 @@ form {
 
 .form__alert--pass {
   grid-column: 1/span 5;
+}
+
+.form__files {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.upload-img {
+  width: 75px;
+  height: 75px;
 }
 
 .searchbar {
@@ -1037,6 +1057,38 @@ form {
   border-radius: 10px;
   height: 33px;
   font-family: "Montserrat", sans-serif;
+}
+
+.post__model__container {
+  padding-top: 20px;
+}
+
+.post__model {
+  text-decoration: none;
+  color: #004EA8;
+  font-family: "Montserrat", sans-serif;
+}
+
+.popup__preview {
+  margin-top: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.popup__preview__model {
+  margin-top: 20px;
+}
+
+.previewImg {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.previewModel {
+  display: none;
 }
 
 .profile__container {

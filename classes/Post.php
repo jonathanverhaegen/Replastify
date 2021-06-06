@@ -6,6 +6,7 @@ class Post{
     private $text; 	
     private $image; 	
     private $user_id; 
+    private $model;
 
     /**
      * Get the value of postName
@@ -87,11 +88,33 @@ class Post{
         return $this;
     }
 
+    /**
+     * Get the value of model
+     */ 
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Set the value of model
+     *
+     * @return  self
+     */ 
+    public function setModel($model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
     public function savePost($id){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("insert into posts (text, user_id, time) values (:text, :user_id, sysdate())");
+        $statement = $conn->prepare("insert into posts (text, user_id, time, image, model) values (:text, :user_id, sysdate(), :image, :model)");
         $statement->bindValue(":user_id", $id);
         $statement->bindValue(":text", $this->text);
+        $statement->bindValue(":image", $this->image);
+        $statement->bindValue(":model", $this->model);
         $statement->execute();
     }
 
@@ -101,4 +124,6 @@ class Post{
         $statement->execute();
         return $statement->fetchAll();
     }
+
+    
 }

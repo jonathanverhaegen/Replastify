@@ -161,3 +161,36 @@
     font-family: $mont;
 }
 
+.post__model__container{
+    padding-top:20px;
+}
+
+.post__model{
+    text-decoration: none;
+    color: $sapphire;
+    font-family: $mont;
+    
+}
+
+.popup__preview{
+    margin-top: 20px;
+    width:50%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.popup__preview__model{
+    margin-top:20px;
+}
+
+.previewImg{
+    width:250px;
+    height:250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.previewModel{
+    display:none;
+}
+
