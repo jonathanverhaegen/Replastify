@@ -12,7 +12,7 @@ $user = User::getUserById($id);
 
 
 if($user["type"] === "printer"){
-    $orders = Order::getOrdersForPrinter($id);
+    
     $isPintrer = true;
 
     $chatPrinter = Message::getAllForPrinter($id);
@@ -21,6 +21,7 @@ if($user["type"] === "printer"){
 
 
     if(!empty($_GET)){
+        $get = true;
         $userid = $_GET["chat"];
         $sender = User::getUserById($userid);
         $chat = Message::getChat($id, $userid);
@@ -73,8 +74,10 @@ if($user["type"] === "printer"){
         </a>
         <?php endforeach; ?>
     </div>
-
+        
+    <?php if(isset($get)): ?>
     <div class="chat__window">
+        
         <ul class="chat__con">
             <?php foreach($chat as $c): ?>
             <?php if($c["receiver_id"] === $id): ?>
@@ -100,7 +103,7 @@ if($user["type"] === "printer"){
             <a data-senderid="<?php echo $id;?>" data-receiverid="<?php echo $userid;?>" class="btn" id="chatBtn" href="">Stuur</a>
         </div>
     </div>
-
+    <?php endif; ?>
 </div>
 
 

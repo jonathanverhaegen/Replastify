@@ -1570,6 +1570,7 @@ form {
   gap: 10px;
   border-radius: 10px;
   text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .chat__img {
@@ -1618,6 +1619,15 @@ form {
   width: 70%;
 }
 
+.chat__text--self {
+  background-color: #004EA8;
+  color: white;
+}
+
+.popchat__text {
+  background-color: white;
+}
+
 .chat__input__container {
   background-color: #636363;
   grid-column: 2;
@@ -1631,6 +1641,67 @@ form {
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+.chat__header__name {
+  color: white;
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+}
+
+.popchat {
+  width: 40%;
+}
+
+.popchat__img {
+  width: 75px;
+  height: 75px;
+}
+
+.popchat__trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.popchat__header {
+  background-color: #004EA8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.popchat__chat {
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.popchat__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.popchat__item--self {
+  align-items: flex-end;
+}
+
+.popchat__img {
+  width: 100px;
+  height: 100px;
+}
+
+.chat__name {
+  color: #004EA8;
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.popchat__window {
+  display: none;
 }
 
 .title {

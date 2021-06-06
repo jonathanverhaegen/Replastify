@@ -17,6 +17,7 @@
     gap:10px;
     border-radius:10px;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 .chat__img{
@@ -65,6 +66,15 @@
     width:70%;
 }
 
+.chat__text--self{
+    background-color : $sapphire;
+    color: $white;
+}
+
+.popchat__text{
+    background-color: $white;
+}
+
 .chat__input__container{
     background-color: $dimgray;
     grid-column: 2;
@@ -79,4 +89,68 @@
     display:flex;
     justify-content: center;
     gap:20px;
+}
+
+.chat__header__name{
+    color: $white;
+    font-size: $bigger;
+    font-family: $comfortaa;
+}
+
+.popchat{
+    width:40%; 
+}
+
+.popchat__img{
+    width:75px;
+    height:75px;
+}
+
+.popchat__trigger{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+
+.popchat__header{
+    background-color: $sapphire;
+    display:flex;
+    align-items: center;
+    gap:10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.popchat__chat{
+    padding: 10px;
+    background-color: $background;
+}
+
+.popchat__item{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom:20px;
+}
+
+.popchat__item--self{
+    align-items: flex-end;
+    
+}
+
+.popchat__img{
+    width:100px;
+    height:100px;
+}
+
+.chat__name{
+    color: $sapphire;
+    font-family: $comfortaa;
+    font-size: $bigger;
+    margin-bottom:5px;
+}
+
+.popchat__window{
+    display:none;
 }

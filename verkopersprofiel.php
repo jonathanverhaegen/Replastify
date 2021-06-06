@@ -8,6 +8,12 @@ if(!isset($_SESSION['id'])){
     
 }
 
+//chat
+
+
+
+
+
 if(!empty($_GET)){
     $printerid = $_GET["printer"];
     $printer = User::getUserById($printerid);
@@ -17,6 +23,9 @@ if(!empty($_GET)){
 
     $modelid = $_GET["model"];
     $model = Model::getModelById($modelid);
+
+    $chat = Message::getChat($id, $printerid);
+    var_dump($chat);
     
     
 }
@@ -119,10 +128,50 @@ if(!empty($_POST)){
     </form>
 </div>
 
+<div class="popchat">
+    <div class="popchat__window">
+        <div class="popchat__header">
+            <img class="chat__img" src="images/<?php echo htmlspecialchars($printer["avatar"]); ?>" alt="">
+            <p class="chat__header__name"><?php echo htmlspecialchars($printer["username"]); ?></p>
+
+        </div>
+        <ul class="popchat__chat">
+            <?php foreach($chat as $c): ?>
+            <?php if($c["receiver_id"] === $id): ?>
+            <li class="popchat__item">
+                <p class="chat__name"><?php echo htmlspecialchars($printer["username"]); ?></p>
+                <p class="chat__text popchat__text"><?php echo htmlspecialchars($c["text"]); ?></p>
+            </li>
+            <?php endif; ?>
+            <?php if($c["sender_id"] === $id): ?>
+            <li class="popchat__item popchat__item--self">
+                <p class="chat__name">Ik</p>
+                <p class="chat__text popchat__text"><?php echo htmlspecialchars($c["text"]); ?></p>
+            </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
+            
+        </ul>
+        <div class="chat__input__container">
+        <div class="chat__input">
+            <input class="form__input form__input--post" type="text" id="chatField" placeholder="Type something">
+            <a data-senderid="<?php echo $id;?>" data-receiverid="<?php echo $printerid;?>" class="btn" id="chatBtn" href="">Stuur</a>
+        </div>
+    </div>
+    </div>
+    <div class="popchat__trigger">
+        <img class="popchat__img" src="images/comment.svg" alt="">
+    </div>
+    
+
+</div>
+
 
 
 </div>
 <?php include_once("footer.inc.php") ?>
+
+<script src="js/popchat.js"></script>
     
 </body>
 </html>
