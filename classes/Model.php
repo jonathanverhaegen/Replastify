@@ -158,7 +158,7 @@ class Model{
         $statement = $conn->prepare("SELECT * FROM `models` WHERE `name` LIKE :input OR `description` LIKE :input order by time desc ");
         $statement->bindValue(":input", "%".$input."%");
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
 
     }
 

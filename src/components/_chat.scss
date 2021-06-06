@@ -1,0 +1,82 @@
+@import '../colors';
+@import '../fonts';
+
+.chat__container{
+    background-color: $background;
+    padding: 40px 20px 40px 20px;
+    display:grid;
+    grid-template-columns: 2fr 5fr;
+    column-gap:20px;
+}
+
+
+
+.chat__user{
+    display:flex;
+    align-items: center;
+    gap:10px;
+    border-radius:10px;
+    text-decoration: none;
+}
+
+.chat__img{
+    height:75px;
+    width: 75px;
+    object-fit: cover;
+    border-radius: 70%;
+}
+
+.chat__username{
+    color: $pinetree;
+    font-size: $plaintext;
+    font-family: $comfortaa;
+}
+
+.chat__window{
+    background-color: $white;
+    border-radius: 10px;
+    padding: 40px 20px 40px 20px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.chat__con{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.chat__item{
+    display:flex;
+    gap:10px;
+    flex-direction: row;
+}
+
+.chat__item--self{
+    flex-direction: row-reverse;
+}
+
+.chat__text{
+    background-color: $background;
+    font-size: $plaintext;
+    color: $pinetree;
+    font-family: $comfortaa;
+    padding: 40px 20px 40px 20px;
+    border-radius: 10px;
+    width:70%;
+}
+
+.chat__input__container{
+    background-color: $dimgray;
+    grid-column: 2;
+    padding:20px;
+    
+}
+
+.chat__input{
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    justify-content: center;
+    gap:20px;
+}

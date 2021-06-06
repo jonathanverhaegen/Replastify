@@ -159,7 +159,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .tutorial {
@@ -1556,6 +1556,83 @@ form {
   font-family: "Comfortaa", cursive;
 }
 
+.chat__container {
+  background-color: #f5f5f5;
+  padding: 40px 20px 40px 20px;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  column-gap: 20px;
+}
+
+.chat__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.chat__img {
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  border-radius: 70%;
+}
+
+.chat__username {
+  color: #25291C;
+  font-size: 16px;
+  font-family: "Comfortaa", cursive;
+}
+
+.chat__window {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px 20px 40px 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.chat__con {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chat__item {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.chat__item--self {
+  flex-direction: row-reverse;
+}
+
+.chat__text {
+  background-color: #f5f5f5;
+  font-size: 16px;
+  color: #25291C;
+  font-family: "Comfortaa", cursive;
+  padding: 40px 20px 40px 20px;
+  border-radius: 10px;
+  width: 70%;
+}
+
+.chat__input__container {
+  background-color: #636363;
+  grid-column: 2;
+  padding: 20px;
+}
+
+.chat__input {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .title {
   font-family: "Comfortaa", cursive;
   color: #004EA8;
@@ -1574,7 +1651,7 @@ form {
 }
 
 .title--landing {
-  margin-top: 100px;
+  padding-top: 100px;
 }
 
 .title--left {
