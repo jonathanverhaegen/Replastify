@@ -60,6 +60,7 @@ if(!empty($_GET)){
                 <img class="model__preview__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="">
             </div>
             <div class="model__btns">
+                <a class="btn" href="./models" download="<?php echo $model["3dmodel"]; ?>">download model</a>
                 <a class="btn model__print" href="detailpagina.php?model=<?php echo $model["id"] ?>">Printen</a>
                 <a class="btn model__share" href="community.php?model=<?php echo $model["id"] ?>">Deel</a>
             </div>

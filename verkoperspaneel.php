@@ -54,7 +54,6 @@ if($user["type"] === "printer"){
 <div class="order__container">
     <?php foreach($orders as $o):
         $status = $o["status"];
-        echo $status;
     ?>
         
     <div class="order order--printer ">
@@ -71,6 +70,18 @@ if($user["type"] === "printer"){
 
         <?php if($status === "1"): ?>
         <p class="order__status order__status--good">Goedgekeurd</p>
+        <?php endif; ?>
+
+        <?php if($status === "2"): ?>
+        <p class="order__status order__status--good">Wachten op betaling</p>
+        <?php endif; ?>
+
+        <?php if($status === "3"): ?>
+        <p class="order__status order__status--alert">Je hebt deze geweigerd</p>
+        <?php endif; ?>
+
+        <?php if($status === "4"): ?>
+        <p class="order__status order__status--good">Betaald</p>
         <?php endif; ?>
         
         <a class="order__link" href="printerorder.php?order=<?php echo $o["id"] ?>">Bekijk Order</a>

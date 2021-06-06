@@ -103,7 +103,7 @@ class Order{
         $statement = $conn->prepare("select * from opdrachten INNER JOIN `users` ON `opdrachten`.`user_id` = `users`.`id` where `opdrachten`.`id` = :id ");
         $statement->bindValue(":id", $id);
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        return $statement->fetch();
     }
 
     public static function getOrderForUserById($id){
@@ -111,7 +111,7 @@ class Order{
         $statement = $conn->prepare("select * from opdrachten INNER JOIN `users` ON `opdrachten`.`printer_id` = `users`.`id` where `opdrachten`.`id` = :id ");
         $statement->bindValue(":id", $id);
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        return $statement->fetch();
     }
 
     /**
@@ -202,6 +202,16 @@ class Order{
         $statement = $conn->prepare("update opdrachten set status = :status where id = :id");
         $statement->bindValue(":status", $status);
         $statement->bindValue(":id", $id);
+        $statement->execute();
+    }
+
+    public static function updatePrice($ready, $price, $id, $status){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update opdrachten set ready = :ready, price = :price, status = :status where id = :id");
+        $statement->bindValue(":ready", $ready);
+        $statement->bindValue(":price", $price);
+        $statement->bindValue(":id", $id);
+        $statement->bindValue(":status", $status);
         $statement->execute();
     }
 }

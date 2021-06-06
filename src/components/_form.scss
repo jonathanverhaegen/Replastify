@@ -136,6 +136,11 @@ form{
     margin-bottom:20px;
 }
 
+.form__title--order{
+    grid-column: 1 / span 2;
+    text-align: center;
+}
+
 .form__label--model{
     color:$pinetree;
     margin-top:20px;

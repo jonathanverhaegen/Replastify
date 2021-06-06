@@ -12,6 +12,7 @@ if(!empty($_GET)){
     $orderid = $_GET["order"];
     $order = Order::getOrderForUserById($orderid);
     
+    
     switch($order["status"]){
         case 0:
             $status = "In afwachting";
@@ -22,10 +23,21 @@ if(!empty($_GET)){
             $style = "order__status order__status--good";
             break;
         case 2:
-            $status = "Betaald";
+            $status = "Wachten op betaling";
             $style = "order__status order__status--alert";
             break;
+        case 3:
+            $status = "Geweigerd";
+            $style = "order__status order__status--alert";
+            break;
+        case 4:
+            $status = "Betaald";
+            $style = "order__status order__status--good";
+            break;
+        
     }
+
+    
 }
 
 
@@ -72,12 +84,12 @@ if(!empty($_GET)){
     </div>
     <?php endif; ?>
 
-    <?php if($status === "Geaccepteerd"): ?>
+    <?php if($status === "Wachten op betaling"): ?>
     <div class="order__verwerk">
     <p class="order__title">Status</p>
-    <p class="order__status order__status--detail">Wachten op betaling</p>
+    <p class="order__status order__status--detail"><?php echo $status ?></p>
     <p class="order__title">Prijs</p>
-    <p class="order__status order__status--detail">nen euro</p>
+    <p class="order__status order__status--detail"><?php echo htmlspecialchars($order["price"])?></p>
     <p class="order__title">Kortingscode</p>
     <div class="korting">
         <input type="text" class="form__input form__input--order">
@@ -87,8 +99,8 @@ if(!empty($_GET)){
     <p class="order__korting" id="amount ">-10%</p>
     <p class="order__title">Totaal</p>
     <div class="order__btns">
-        <p class="order__status order__status--detail" >10</p>
-        <a class="btn" href="">Betaal</a>
+        <p class="order__status order__status--detail" ><?php echo htmlspecialchars($order["price"]) ?></p>
+        <a data-orderid="<?php echo $order[0] ?>" class="btn" href="" id="pay">Betaal</a>
     </div>
     </div>
     <?php endif; ?>
@@ -98,13 +110,36 @@ if(!empty($_GET)){
     <p class="order__title">Status</p>
     <p class="order__status order__status--detail">Betaald</p>
     <p class="order__title">Totaal</p>
-    <p class="order__status order__status--detail">nen euro</p>
+    <p class="order__status order__status--detail"><?php echo htmlspecialchars($order["price"]) ?></p>
     <p class="order__status order__status--detail">Stuur de printer om verder af te spreken waar je je object kan gaan afhalen</p>
     <div>
     <a class="btn" id="chat" href="">Chat</a>
     </div>
     </div>
     <?php endif; ?>
+
+    <?php if($status === "Geweigerd"): ?>
+    <div class="order__verwerk">
+    <p class="order__title">Status</p>
+    <p class="order__status order__status--detail">Geweigerd</p>
+    <p class="order__status order__status--detail">Je kan de printer een bericht sturen om te vragen warom hij het geweigerd heeft</p>
+    <div>
+    <a class="btn" id="chat" href="">Chat</a>
+    </div>
+    </div>
+    <?php endif; ?>
+
+    <?php if($status === "Geaccepteerd"): ?>
+    <div class="order__verwerk">
+    <p class="order__title">Status</p>
+    <p class="order__status order__status--detail">Geaccepteerd</p>
+    <p class="order__status order__status--detail"><?php echo htmlspecialchars($order["username"]) ?> heeft je bestelling geaanvaard. Hij laat je zo snel mogelijk weten wannner het klaar is.</p>
+    <div>
+    <a class="btn" id="chat" href="">Chat</a>
+    </div>
+    </div>
+    <?php endif; ?>
+    
 
     
 </div>
@@ -115,6 +150,7 @@ if(!empty($_GET)){
 
 </div>
 <?php include_once("footer.inc.php") ?>
+<script src="js/orderpay.js"></script>
     
 </body>
 </html>

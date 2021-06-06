@@ -49,13 +49,18 @@ $orders = Order::getOrdersForUser($id);
                 $style = "order__status order__status--good";
                 break;
             case 2:
-                $status = "Betaald";
-                $style = "order__status order__status--good";
+                $status = "Wachten op betaling";
+                $style = "order__status order__status--alert";
                 break;
             case 3:
                 $status = "Geweigerd";
                 $style = "order__status order__status--alert";
                 break;
+            case 4:
+                $status = "Betaald";
+                $style = "order__status order__status--good";
+                break;
+
         }
 
     ?>
