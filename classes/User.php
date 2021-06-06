@@ -422,5 +422,18 @@ class User{
         $statement->execute();
     }
 
+    public static function updatePassword($newPassword, $id){
+        $options = [
+            'cost' => 15
+        ];
+        $password = password_hash($newPassword, PASSWORD_DEFAULT, $options);
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set password = :password where id = :id");
+        $statement->bindValue(":password", $password );
+        $statement->bindValue(":id", $id );
+        $statement->execute();
+
+    }
+
     
 }

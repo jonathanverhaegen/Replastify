@@ -10,6 +10,31 @@ if(!isset($_SESSION['id'])){
 
 $user = User::getUserById($id);
 
+if(!empty($_POST)){
+
+    $old = $_POST["old"];
+    $new = $_POST["new"];
+    $check = $_POST["check"];
+
+    if($check === $new){
+
+        $user = User::getUserById($id);
+        $hash = $user["password"];
+        
+        if(password_verify($old, $hash)){
+            User::updatePassword($new, $id);
+        }else{
+            $error = "Wachtwoord is niet juist";
+        }
+
+    }else{
+        $error = "Wachtwoorden zijn niet dezelfde";
+    }
+
+
+
+}
+
 
 
 
@@ -99,18 +124,22 @@ $user = User::getUserById($id);
     <input class="profile__link" type="submit" value="Opslaan">
 </form>
 <?php endif; ?>
-<form class="profile__container profile__container--large" action="ajax/updatePassword.php" method="post">
+
+<form class="profile__container profile__container--large" action="" method="post">
+<?php if(!empty($error)): ?>
+    <p class="form__alert form__alert--pass"><?php echo $error; ?></p>
+<?php endif; ?>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="old">Oud wachtwoord</label>
-        <input type="text" class="form__input form__input--profile" name="old" id="old" >
+        <input type="password" class="form__input form__input--profile" name="old" id="old" >
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="new">Nieuw wachtwoord</label>
-        <input type="text" class="form__input form__input--profile" name="new" id="new">
+        <input type="password" class="form__input form__input--profile" name="new" id="new">
     </div>
     <div class="form--profile">
         <label class="form__label form__label--profile" for="check">Herhaal nieuw wachtwoord</label>
-        <input type="text" class="form__input form__input--profile" name="check" id="check">
+        <input type="password" class="form__input form__input--profile" name="check" id="check">
     </div>
     <input class="profile__link" type="submit" value="Opslaan">
 </form>
