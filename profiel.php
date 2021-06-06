@@ -88,6 +88,35 @@ $user = User::getUserById($id);
     <input class="profile__link" type="submit" value="Opslaan">
 </form>
 
+<?php if($user["type"] === "printer"): ?>
+<form class="profile__container profile__container--mini" action="ajax/updateBio.php" method="post">
+    <div class="form--profile">
+        <label class="form__label form__label--profile" for="bio">Bio</label>
+        <textarea type="text" class="form__input form__input--profile" name="bio" id="bio" ><?php echo htmlspecialchars($user["bio"]) ?></textarea>
+    </div>
+    <div></div>
+    
+    <input class="profile__link" type="submit" value="Opslaan">
+</form>
+<?php endif; ?>
+<form class="profile__container profile__container--large" action="ajax/updatePassword.php" method="post">
+    <div class="form--profile">
+        <label class="form__label form__label--profile" for="old">Oud wachtwoord</label>
+        <input type="text" class="form__input form__input--profile" name="old" id="old" >
+    </div>
+    <div class="form--profile">
+        <label class="form__label form__label--profile" for="new">Nieuw wachtwoord</label>
+        <input type="text" class="form__input form__input--profile" name="new" id="new">
+    </div>
+    <div class="form--profile">
+        <label class="form__label form__label--profile" for="check">Herhaal nieuw wachtwoord</label>
+        <input type="text" class="form__input form__input--profile" name="check" id="check">
+    </div>
+    <input class="profile__link" type="submit" value="Opslaan">
+</form>
+
+
+
 
 
 <div class="logout">

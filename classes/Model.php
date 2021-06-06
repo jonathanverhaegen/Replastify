@@ -6,6 +6,7 @@ class Model{
     private $model;	
     private $description;	
     private $user_id;
+    private $extra;
 
     /**
      * Get the value of name
@@ -133,12 +134,13 @@ class Model{
 
     public function saveModel(){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("INSERT INTO models (`name`,`image`,`3dmodel`,`description`,`user_id`,`time`) values (:name, :image, :model, :description, :user_id, sysdate())");
+        $statement = $conn->prepare("INSERT INTO models (`name`,`image`,`3dmodel`,`description`,`user_id`,`time`, `extra`) values (:name, :image, :model, :description, :user_id, sysdate(), :extra)");
         $statement->bindvalue("name", $this->name);
         $statement->bindvalue("image", $this->image);
         $statement->bindvalue("model", $this->model);
         $statement->bindvalue("description", $this->description);
         $statement->bindvalue("user_id", $this->user_id);
+        $statement->bindvalue(":extra", $this->extra);
         $statement->execute();
         
     }
@@ -156,7 +158,35 @@ class Model{
         $statement = $conn->prepare("SELECT * FROM `models` WHERE `name` LIKE :input OR `description` LIKE :input order by time desc ");
         $statement->bindValue(":input", "%".$input."%");
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetch(PDO::FETCH_ASSOC);
 
+    }
+
+    /**
+     * Get the value of extra
+     */ 
+    public function getExtra()
+    {
+        return $this->extra;
+    }
+
+    /**
+     * Set the value of extra
+     *
+     * @return  self
+     */ 
+    public function setExtra($extra)
+    {
+        $this->extra = $extra;
+
+        return $this;
+    }
+
+    public static function getExtraById($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select extra from models where id = :id");
+        $statement->bindvalue("id", $id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }

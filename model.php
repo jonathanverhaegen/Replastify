@@ -12,6 +12,11 @@ if(!empty($_GET)){
     $modelId = $_GET["model"];
     $model = Model::getModelById($modelId);
     $user = User::getUserById($model["user_id"]);
+    $extra = Model::getExtraById($modelId);
+    foreach($extra as $e){
+        $info = explode(", ", $e);
+        
+    }
     
 
     
@@ -49,7 +54,16 @@ if(!empty($_GET)){
 
         <div class="model__info">
         <img class="model__img" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="3dmodel">
-        <p class="model__description" ><?php echo htmlspecialchars($model["description"]) ?></p>
+        <div class="model__description">
+            <p class="model__desc__title">Beschrijving:</p>
+            <p class="model__desc__text"><?php echo htmlspecialchars($model["description"]) ?></p>
+            <p class="model__desc__title">Extra info</p>
+            <ul class="detail__list">
+                <?php foreach($info as $i): ?>
+                    <li class="detail__list__item"><?php echo htmlspecialchars($i);?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
         </div>
 
         <div class="model__extra">

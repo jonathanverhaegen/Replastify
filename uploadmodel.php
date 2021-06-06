@@ -13,6 +13,7 @@ if(!empty($_POST)){
     $model->setName($_POST["name"]);
     $model->setDescription($_POST["description"]);
     $model->setUser_id($id);
+    $model->setExtra($_POST["extra"]);
     
     //picture
     $picture = $_FILES["foto"];
@@ -28,7 +29,7 @@ if(!empty($_POST)){
         
         if(in_array($fileActExt, $allowed)){
             if($fileError === 0){
-                if($fileSize < 1000000){
+                if($fileSize < 100000000000){
 
                     $fileNameNew = uniqid('', true).".".$fileActExt;
 
@@ -40,7 +41,7 @@ if(!empty($_POST)){
                     $error = "avatar is to big";
                 }
             }else{
-                $error = "there was an error";
+                $error = "there was an error uplaoding the image";
             }
 
         }else{
@@ -57,11 +58,11 @@ if(!empty($_POST)){
         $fileType = $body["type"];
         $fileExt = explode(".", $fileName);
         $fileActExt = strtolower(end($fileExt));
-        $allowed = array("stl");
+        $allowed = array("stl", "ipt");
         
         if(in_array($fileActExt, $allowed)){
             if($fileError === 0){
-                if($fileSize < 100000000000){
+                if($fileSize < 1000000000000000000){
 
                     $fileNameNew = uniqid('', true).".".$fileActExt;
 
@@ -73,7 +74,7 @@ if(!empty($_POST)){
                     $error = "avatar is to big";
                 }
             }else{
-                $error = "there was an error";
+                $error = "there was an error uploading the model";
             }
 
         }else{
@@ -84,7 +85,13 @@ if(!empty($_POST)){
 
     $model->saveModel();
 
-    header("Location: ./database.php");
+    if(empty($error)){
+        header("Location: ./database.php");
+    }
+        
+    
+
+    
     
     
 }
@@ -120,12 +127,18 @@ if(!empty($_POST)){
 <div class="form__container form__container--model">
 
 <form class="form form--model" action="" method="post" enctype="multipart/form-data">
+<?php if(!empty($error)): ?>
+    <p class="form__alert"><?php echo $error; ?></p>
+<?php endif; ?> 
 
     <label class="form__label form__label--model" for="name">Naam van het model</label>
     <input class="form__input" type="text" name="name" placeholder="Naam van het model">
 
     <label class="form__label form__label--model" for="description">Beschrijving</label>
     <input class="form__input" type="text" name="description" placeholder="Beschrijving">
+
+    <label class="form__label form__label--model" for="extra">Extra informatie</label>
+    <input class="form__input" type="text" name="extra" placeholder="bv: 100gram, 20mm">
 
     <label class="form__label form__label--model" for="model">Model</label>
     <input class="form__file" type="file"  name="model">

@@ -12,6 +12,11 @@ if(!empty($_GET)){
     $modelid = $_GET["model"];
     $model = Model::getModelById($modelid);
     $user = User::getUserById($model["user_id"]);
+    $extra = Model::getExtraById($modelid);
+    foreach($extra as $e){
+        $info = explode(", ", $e);
+        
+    }
     
 }
 
@@ -64,9 +69,9 @@ if(!empty($_POST)){
 <p class="detail__name"><?php echo htmlspecialchars($model["name"]); ?></p>
 <p class="detail__desc"><?php echo htmlspecialchars($model["description"]); ?></p>
 <ul class="detail__list">
-    <li class="detail__list__item">Type: 8mm</li>
-    <li class="detail__list__item">Diameter: 8mm</li>
-    <li class="detail__list__item">Kerndiameter: 8mm</li>
+    <?php foreach($info as $i): ?>
+    <li class="detail__list__item"><?php echo htmlspecialchars($i);?></li>
+    <?php endforeach; ?>
 </ul>
 </div>
 

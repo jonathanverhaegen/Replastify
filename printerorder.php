@@ -20,7 +20,7 @@ if($user["type"] === "printer"){
         $model = Model::getModelById($order["model_id"]);
         
         $status = $order["status"];
-        echo $status;
+    
 
         
         
@@ -87,6 +87,11 @@ if(!empty($_POST)){
         <p class="order__status order__status--alert">Je hebt deze geweigerd</p>
     <?php endif; ?>
     
+    <div class="order__info">
+        <p class="order__info__title">Beschrijving:</p>
+        <p class="order__desc"><?php echo htmlspecialchars($order["description"]); ?></p>
+    </div>
+    
     <img class="order__image" src="images/<?php echo htmlspecialchars($model["image"]) ?>" alt="order">
     <div class="order__download">
     <a class="btn" href="./models" download="<?php echo $model["3dmodel"]; ?>">download model</a>
@@ -103,7 +108,7 @@ if(!empty($_POST)){
     <p class="order__username order__username--spec"><?php echo htmlspecialchars($order["username"]) ?></p>
     <p class="order__name order__name--spec"><?php echo htmlspecialchars($order["title"]) ?></p>
     <a class="order__status" href="">Chat</a>
-    <a class="order__status" href="">&times;</a>
+    <a  class="order__status" href="verkoperspaneel.php">&times;</a>
     
     <form action="" method="post" class="order__verwerk order__verwerk--price">
         
@@ -135,6 +140,24 @@ if(!empty($_POST)){
             <p class="form__title form__title--order">Wachten op de betaling van <?php echo htmlspecialchars($order["username"]) ?></p>
         
     </form>
+</div>
+<?php endif; ?>
+
+<?php if($status === "4"): ?>
+
+<div class="order order--pay">
+    <img class="order__avatar order__avatar--spec" src="images/<?php echo $order["avatar"] ?>" alt="avatar">
+    <p class="order__username order__username--spec"><?php echo htmlspecialchars($order["username"]) ?></p>
+    <p class="order__name order__name--spec"><?php echo htmlspecialchars($order["title"]) ?></p>
+    <a class="order__status" href="">Chat</a>
+    <a class="order__status" href="verkoperspaneel.php">&times;</a>
+    
+    <div class="order__payed">
+        
+            <p class="form__title form__title--order"><?php echo htmlspecialchars($order["username"]) ?> heeft het bedrag betaald.</p>
+            <p>Hou de chat in de gaten voor een afspraak om het op te komen halen.</p>
+        
+    </div>
 </div>
 <?php endif; ?>
     

@@ -4,7 +4,6 @@
 .model{
     background-color: $background;
     padding-top:20px;
-    margin-top:50px;
     margin-bottom:50px;
     border-radius: 10px;
 }
@@ -65,5 +64,16 @@
     justify-content: center;
     align-items: center;
     gap:10%;
+}
+
+.model__desc__title{
+    color: $sapphire;
+    font-size: $bigger;
+    font-family: $comfortaa;
+    margin-bottom: 20px;
+}
+
+.model__desc__text{
+    margin-bottom: 20px;
 }
 

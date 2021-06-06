@@ -13,6 +13,8 @@ class User{
     private $city; 	
     private $postalcode;
     private $type;
+    private $bio;
+    
 
     /**
      * Get the value of street
@@ -339,6 +341,26 @@ class User{
         return $this;
     }
 
+    /**
+     * Get the value of bio
+     */ 
+    public function getBio()
+    {
+        return $this->bio;
+    }
+
+    /**
+     * Set the value of bio
+     *
+     * @return  self
+     */ 
+    public function setBio($bio)
+    {
+        $this->bio = $bio;
+
+        return $this;
+    }
+
     public static function getUserById($id){
         $conn = Db::getConnection();
         $statement = $conn->prepare("select * from users where id = :id");
@@ -391,4 +413,14 @@ class User{
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function updateBio($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("update users set bio = :bio where id = :id");
+        $statement->bindValue(":id", $id);
+        $statement->bindValue(":bio", $this->bio);;
+        $statement->execute();
+    }
+
+    
 }

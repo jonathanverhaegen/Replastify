@@ -15,6 +15,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
+.profile__container--large{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .profile__image{
     width:100px;
     height:100px;

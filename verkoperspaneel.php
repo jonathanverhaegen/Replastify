@@ -54,6 +54,7 @@ if($user["type"] === "printer"){
 <div class="order__container">
     <?php foreach($orders as $o):
         $status = $o["status"];
+        if($status != "3"):
     ?>
         
     <div class="order order--printer ">
@@ -86,7 +87,7 @@ if($user["type"] === "printer"){
         
         <a class="order__link" href="printerorder.php?order=<?php echo $o["id"] ?>">Bekijk Order</a>
     </div>
-    
+    <?php endif; ?>
     <?php endforeach; ?>
 
 </div>

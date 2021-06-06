@@ -648,7 +648,6 @@ form {
 .model {
   background-color: #f5f5f5;
   padding-top: 20px;
-  margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 10px;
 }
@@ -708,6 +707,17 @@ form {
   justify-content: center;
   align-items: center;
   gap: 10%;
+}
+
+.model__desc__title {
+  color: #004EA8;
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+  margin-bottom: 20px;
+}
+
+.model__desc__text {
+  margin-bottom: 20px;
 }
 
 .window {
@@ -1039,6 +1049,10 @@ form {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
+.profile__container--large {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .profile__image {
   width: 100px;
   height: 100px;
@@ -1322,7 +1336,7 @@ form {
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 3fr 4fr 3fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 3fr 5fr 1fr;
   align-items: center;
   margin-bottom: 50px;
 }
@@ -1343,17 +1357,17 @@ form {
 }
 
 .order__image {
-  padding: 20px;
   height: 500px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  grid-row-start: 2;
+  grid-row-start: 3;
   grid-column: 1/span 4;
+  border-radius: 10px;
 }
 
 .order__download {
-  grid-row-start: 3;
+  grid-row-start: 4;
   grid-column: 4/span 5;
 }
 
@@ -1416,6 +1430,39 @@ form {
   grid-column: 1/span 2;
   display: flex;
   justify-content: center;
+}
+
+.order__payed {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 1/span 5;
+  color: #25291C;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.order__info {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 1/span 6;
+}
+
+.order__desc {
+  color: #25291C;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 40px;
+}
+
+.order__info__title {
+  color: #004EA8;
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
 }
 
 .printer__container {
@@ -1497,6 +1544,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .back__img {

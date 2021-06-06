@@ -7,8 +7,8 @@ btnGood.forEach((btn) => {
         let status = 1;
         let orderid = btn.dataset.orderid;
         
-        sendData(status, orderid);
-        document.querySelector('#btns').innerHTML = "juu"
+        // sendData(status, orderid);
+        document.querySelector('#btns').innerHTML = "<p class='order__status order__status--good'>De bestelling is goedgekeurd</p>"
         
     
     
@@ -25,8 +25,8 @@ btnBad.forEach((btn) => {
         let status = 3;
         let orderid = btn.dataset.orderid;
         
-        sendData(status, orderid);
-        document.querySelector('#btns').innerHTML = "juu";
+        // sendData(status, orderid);
+        document.querySelector('#btns').innerHTML = "<p class='order__status order__status--alert'>De bestelling is geweigerd</p>"
         
     
     

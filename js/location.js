@@ -61,14 +61,14 @@ let app = new App;
 
 const input = document.querySelector("#location");
 
-input.addEventListener("keydown", (e) => {
+input.addEventListener("change", (e) => {
     
-    if(e.keyCode === 13){
+    // if(e.keyCode === 13){
         let city = e.target.value;
         getPrinters(city);
         
         
-    }
+    // }
 })
 
 
