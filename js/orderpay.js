@@ -18,6 +18,7 @@ btn.addEventListener('click', (e) => {
         .then(response => response.json())
         .then(result => {
             console.log('Success:', result);
+            window.location.href = "orders.php";
 
         })
         .catch(error => {

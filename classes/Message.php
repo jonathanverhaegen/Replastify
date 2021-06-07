@@ -79,7 +79,7 @@ class Message{
 
     public static function getAllForPrinter($id){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select * from messages INNER JOIN users ON `messages`.`sender_id` = `users`.`id` where receiver_id = :id limit 1");
+        $statement = $conn->prepare("SELECT MAX(`id`), sender_id FROM messages WHERE `receiver_id` = :id GROUP BY `sender_id` ");
         $statement->bindValue(":id", $id);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -87,7 +87,7 @@ class Message{
 
     public static function getChat($id,$user_id){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select * from messages where sender_id = :id or sender_id = :user_id AND receiver_id = :id or receiver_id = :user_id");
+        $statement = $conn->prepare("select * from messages where (sender_id = :id or sender_id = :user_id) AND (receiver_id = :id or receiver_id = :user_id)");
         $statement->bindValue(":id", $id);
         $statement->bindValue(":user_id", $user_id);
         $statement->execute();

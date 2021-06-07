@@ -115,10 +115,7 @@ if(!empty($_GET)){
     <p class="order__status order__status--detail">Betaald</p>
     <p class="order__title">Totaal</p>
     <p class="order__status order__status--detail"><?php echo htmlspecialchars($order["price"]) ?></p>
-    <p class="order__status order__status--detail">Stuur de printer om verder af te spreken waar je je object kan gaan afhalen</p>
-    <div>
-    <a class="btn" id="chat" href="">Chat</a>
-    </div>
+    <p class="order__status order__status--detail order__status__text ">Stuur de printer om verder af te spreken waar je je object kan gaan afhalen</p>
     </div>
     <?php endif; ?>
 
@@ -134,7 +131,7 @@ if(!empty($_GET)){
     <div class="order__verwerk">
     <p class="order__title">Status</p>
     <p class="order__status order__status--detail">Geaccepteerd</p>
-    <p class="order__status order__status--detail order__status__text"><?php echo htmlspecialchars($order["username"]) ?> heeft je bestelling geaanvaard. Hij laat je zo snel mogelijk weten wannner het klaar is.</p>
+    <p class="order__status order__status--detail order__status__text"><?php echo htmlspecialchars($order["username"]) ?> heeft je bestelling geaanvaard. Hij laat je zo snel mogelijk weten wanneer het klaar is.</p>
     
     </div>
     <?php endif; ?>
@@ -188,7 +185,7 @@ if(!empty($_GET)){
 </div>
 <?php include_once("footer.inc.php") ?>
 <script src="js/popchat.js"></script>
-<!-- <script src="js/orderpay.js"></script> -->
+<script src="js/orderpay.js"></script>
 
     
 </body>
