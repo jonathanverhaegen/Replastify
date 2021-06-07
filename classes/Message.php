@@ -79,7 +79,7 @@ class Message{
 
     public static function getAllForPrinter($id){
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select * from messages INNER JOIN users ON `messages`.`sender_id` = `users`.`id` where receiver_id = :id");
+        $statement = $conn->prepare("select * from messages INNER JOIN users ON `messages`.`sender_id` = `users`.`id` where receiver_id = :id limit 1");
         $statement->bindValue(":id", $id);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);

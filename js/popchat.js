@@ -57,6 +57,8 @@ chatBtn.addEventListener('click', (e)=>{
             item.appendChild(name);
             item.appendChild(textfield);
 
+            document.querySelector('#chatField').value = "";
+
 
         })
         .catch(error => {

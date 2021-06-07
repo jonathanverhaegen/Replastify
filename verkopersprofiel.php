@@ -25,7 +25,7 @@ if(!empty($_GET)){
     $model = Model::getModelById($modelid);
 
     $chat = Message::getChat($id, $printerid);
-    var_dump($chat);
+    
     
     
 }
@@ -160,7 +160,7 @@ if(!empty($_POST)){
     </div>
     </div>
     <div class="popchat__trigger">
-        <img class="popchat__img" src="images/comment.svg" alt="">
+        <img class="popchat__img" src="images/chat.svg" alt="">
     </div>
     
 

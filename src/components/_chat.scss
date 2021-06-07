@@ -98,12 +98,21 @@
 }
 
 .popchat{
-    width:40%; 
+    width:30%; 
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    right: 15px;
+    margin-bottom:20px;
+}
+
+.popchat--mini{
+    top:75%;
 }
 
 .popchat__img{
-    width:75px;
-    height:75px;
+    width:100px;
+    height:100px;
 }
 
 .popchat__trigger{
@@ -125,6 +134,9 @@
 .popchat__chat{
     padding: 10px;
     background-color: $background;
+    height:350px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .popchat__item{
@@ -139,10 +151,7 @@
     
 }
 
-.popchat__img{
-    width:100px;
-    height:100px;
-}
+
 
 .chat__name{
     color: $sapphire;
@@ -153,4 +162,5 @@
 
 .popchat__window{
     display:none;
+    
 }
