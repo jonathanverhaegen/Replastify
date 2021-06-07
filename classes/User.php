@@ -403,7 +403,7 @@ class User{
         $statement->bindValue(":id", $id);
         $statement->bindValue(":username", $this->username);
         $statement->bindValue(":email", $this->email);
-        $statement->execute(PDO::FETCH_ASSOC);
+        $statement->execute();
     }
 
     public static function getUsersByCity($city){

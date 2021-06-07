@@ -163,6 +163,10 @@ if(!empty($_POST)){
         
         </div>
 
+        <div class="form__group--middle">
+        <a class="form__link" href="signup.php">Registreer als user</a>
+        </div>
+
         
     </form>
     

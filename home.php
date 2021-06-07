@@ -33,8 +33,9 @@ $models = Model::GetPopModels();
 
 <div class="home__background">
     <div class="home__logo">
-        <img src="images/" alt="">
+        <img class="home__img" src="images/logo.svg" alt="">
     </div>
+    
 </div>
 
 <h1 class="title">Populaire modellen</h1>
