@@ -126,10 +126,7 @@ if(!empty($_GET)){
     <div class="order__verwerk">
     <p class="order__title">Status</p>
     <p class="order__status order__status--detail">Geweigerd</p>
-    <p class="order__status order__status--detail">Je kan de printer een bericht sturen om te vragen warom hij het geweigerd heeft</p>
-    <div>
-    <a class="btn" id="chat" href="">Chat</a>
-    </div>
+    <p class="order__status order__status--detail">Je kan de printer een bericht sturen om te vragen waarom hij het geweigerd heeft</p>
     </div>
     <?php endif; ?>
 
@@ -137,10 +134,8 @@ if(!empty($_GET)){
     <div class="order__verwerk">
     <p class="order__title">Status</p>
     <p class="order__status order__status--detail">Geaccepteerd</p>
-    <p class="order__status order__status--detail"><?php echo htmlspecialchars($order["username"]) ?> heeft je bestelling geaanvaard. Hij laat je zo snel mogelijk weten wannner het klaar is.</p>
-    <div>
-    <a class="btn" id="chat" href="">Chat</a>
-    </div>
+    <p class="order__status order__status--detail order__status__text"><?php echo htmlspecialchars($order["username"]) ?> heeft je bestelling geaanvaard. Hij laat je zo snel mogelijk weten wannner het klaar is.</p>
+    
     </div>
     <?php endif; ?>
     

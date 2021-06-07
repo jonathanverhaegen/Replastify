@@ -33,6 +33,7 @@ if(!empty($_POST)){
     $status = 2;
 
     Order::updatePrice($ready, $price, $order[0], $status);
+    header("Location: printerorder.php?order=".$orderId);
 
 }
 
