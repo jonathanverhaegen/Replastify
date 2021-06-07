@@ -2,7 +2,7 @@
 
     <div class="footer__header">
         <p class="footer__text">Minder afval, meer gebruik</p>
-        <img class="footer__logo" src="images/logo_header.png" alt="logo">
+        <img class="footer__logo" src="images/logo_header.svg" alt="logo">
     </div>
 
     <div class="footer__menu">

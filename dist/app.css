@@ -619,6 +619,7 @@ form {
   padding-top: 20px;
   padding-bottom: 20px;
   grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 10px;
 }
 
 .searchbar__form {
@@ -820,6 +821,7 @@ form {
   background-color: #f5f5f5;
   padding-top: 100px;
   padding-left: 20px;
+  height: 660px;
 }
 
 .mand__title {
@@ -913,6 +915,7 @@ form {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
 }
 
 .post {
@@ -1099,6 +1102,7 @@ form {
   justify-content: center;
   padding: 20px;
   margin-bottom: 50px;
+  border-radius: 10px;
 }
 
 .profile__container--big {
@@ -1148,6 +1152,7 @@ form {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
 }
 
 .detail__name {
@@ -1230,6 +1235,7 @@ form {
   margin-bottom: 10px;
   background-color: white;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .detail__printer__img {
@@ -1257,6 +1263,7 @@ form {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .verkoper__info {
@@ -1324,6 +1331,7 @@ form {
   background-color: #f5f5f5;
   text-decoration: none;
   gap: 10px;
+  border-radius: 10px;
 }
 
 .order--printer {
@@ -1449,6 +1457,7 @@ form {
   background-color: #f5f5f5;
   padding: 40px;
   margin-top: 50px;
+  border-radius: 10px;
 }
 
 .order__verwerk {
@@ -1641,6 +1650,7 @@ form {
   background-color: #636363;
   grid-column: 2;
   padding: 20px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .chat__input {
@@ -1688,6 +1698,7 @@ form {
   align-items: center;
   gap: 10px;
   padding: 5px 10px 5px 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .popchat__chat {
@@ -1774,6 +1785,7 @@ body {
 .community__header_container {
   background-color: #f5f5f5;
   padding: 40px;
+  border-radius: 10px;
 }
 
 .community__header {

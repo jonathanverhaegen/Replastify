@@ -14,7 +14,7 @@ if(isset($id)){
     <nav>
 
         <div class="nav__logo">
-            <a href="home.php"><img class="nav__image" src="images/logo_header.png" alt=""></a>
+            <a href="home.php"><img class="nav__image" src="images/logo_header.svg" alt=""></a>
         </div>
 
             <!-- <input type="checkbox" id="hamburger" >
