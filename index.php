@@ -56,7 +56,7 @@
         <img class="landing__database__img" src="images/database.png" alt="database">
         <div>
             <p class="landing__database__text">Plastify biedt een grote open-source database met verschillende 3D-modellen. Zo moet jij geen model maken</p>
-            <a class="btn btn--landing" href="">Naar database</a>
+            <a class="btn btn--landing" href="database.php">Naar database</a>
         </div>
         
     </div>
@@ -69,7 +69,7 @@
         <div class="landing__webshop__info">
             <p class="subtitle landing__webshop__title">Plastify 3D-print filament</p>
             <p class="landing__webshop__price">€30,00</p>
-            <a class="btn" href="">Koop</a>
+            <a class="btn" href="webshop.php">Koop</a>
         </div>
     </div>
 
@@ -81,7 +81,7 @@
         <div>
             <p class="landing__database__text">Plastify biedt een maker community. Heb je een vraag over je model of over 3D-printen in het algemeen?</p>
             <p class="landing__database__text">De Mechelaars helpen je vast en zeker!</p>
-            <a class="btn btn--landing" href="">Naar community</a>
+            <a class="btn btn--landing" href="community.php">Naar community</a>
         </div>
 
         <img class="landing__community__img" src="images/community.png" alt="database">

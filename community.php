@@ -182,7 +182,7 @@ $posts = Post::getAllPosts();
 <div class="community__header_container">
     <div class="community__header">
         <img class="community_header__image" src="images/<?php echo $user["avatar"]; ?>" alt="avatar">
-        <input class="form__input form__input--post" type="text" placeholder="type somthing" id="input">
+        <input class="form__input form__input--post" type="text" placeholder="type something" id="input">
     </div>
 </div>
 <?php endif; ?>
@@ -212,7 +212,8 @@ $posts = Post::getAllPosts();
         <div class="form__files">
             <div class="image__upload">
                 <label for="image">
-                    <img class="upload-img" src="images/image.svg" alt="images">
+                    <img class="upload-img" src="images/img.svg" alt="images">
+                    <p class="upload-text">Foto</p>
                 </label>
                 <input id="image" style="display:none;" name="image" type="file">
             </div>
@@ -220,9 +221,10 @@ $posts = Post::getAllPosts();
             <?php if(!isset($get)) : ?>
             <div class="image__upload">
                 <label for="model">
-                    <img class="upload-img" src="images/model.svg" alt="images">
+                    <img class="upload-img" src="images/mdl.svg" alt="images">
                 </label>
                 <input id="model" style="display:none;" name="model" type="file">
+                <p class="upload-text">Model</p>
             </div>
             <?php endif; ?>
         </div>
@@ -257,7 +259,8 @@ $posts = Post::getAllPosts();
         <div class="form__files">
             <div class="image__upload">
                 <label for="image">
-                    <img class="upload-img" src="images/image.svg" alt="images">
+                    <img class="upload-img" src="images/img.svg" alt="images">
+                    <p class="upload-text">Foto</p>
                 </label>
                 <input id="image" style="display:none;" name="image" type="file">
             </div>
@@ -265,7 +268,8 @@ $posts = Post::getAllPosts();
             <?php if(!isset($get)) : ?>
             <div class="image__upload">
                 <label for="model">
-                    <img class="upload-img" src="images/model.svg" alt="images">
+                    <img class="upload-img" src="images/mdl.svg" alt="images">
+                    <p class="upload-text">Model</p>
                 </label>
                 <input id="model" style="display:none;" name="model" type="file">
             </div>

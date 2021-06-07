@@ -606,8 +606,15 @@ form {
 }
 
 .upload-img {
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
+}
+
+.upload-text {
+  color: #25291C;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .searchbar {
@@ -967,6 +974,7 @@ form {
   height: 300px;
   object-fit: cover;
   margin-top: 20px;
+  border-radius: 10px;
 }
 
 .comments__btn {
