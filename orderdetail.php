@@ -11,6 +11,7 @@ if(!isset($_SESSION['id'])){
 if(!empty($_GET)){
     $orderid = $_GET["order"];
     $order = Order::getOrderForUserById($orderid);
+    $printerid = $order["printer_id"];
     $printer = User::getUserById($order["printer_id"]);
     $chat = Message::getChat($id, $order["printer_id"]);
     
@@ -191,8 +192,9 @@ if(!empty($_GET)){
 
 </div>
 <?php include_once("footer.inc.php") ?>
-<script src="js/orderpay.js"></script>
 <script src="js/popchat.js"></script>
+<!-- <script src="js/orderpay.js"></script> -->
+
     
 </body>
 </html>

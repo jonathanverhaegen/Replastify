@@ -1,36 +1,34 @@
-const btnGood =  document.querySelectorAll("#btnGood");
 
-btnGood.forEach((btn) => {
-    btn.addEventListener('click', (e) =>{
+
+const orders = document.querySelectorAll('#btns');
+
+orders.forEach((order) => {
+
+    let btnGood = order.querySelector('#btnGood');
+    
+
+    btnGood.addEventListener('click', (e) =>{
         e.preventDefault();
         
-        let status = 1;
-        let orderid = btn.dataset.orderid;
-        
-        // sendData(status, orderid);
-        document.querySelector('#btns').innerHTML = "<p class='order__status order__status--good'>De bestelling is goedgekeurd</p>"
-        
-    
-    
+            let status = 1;
+            let orderid = btnGood.dataset.orderid;
+                
+            sendData(status, orderid);
+            order.innerHTML = "<p class='order__status order__status--good'>De bestelling is goedgekeurd</p>"
     })
-})
 
+    let btnBad = order.querySelector('#btnBad');
 
-const btnBad =  document.querySelectorAll("#btnBad");
-
-btnBad.forEach((btn) => {
-    btn.addEventListener('click', (e) =>{
+    btnBad.addEventListener('click', (e) => {
         e.preventDefault();
         
         let status = 3;
-        let orderid = btn.dataset.orderid;
+        let orderid = btnBad.dataset.orderid;
         
-        // sendData(status, orderid);
-        document.querySelector('#btns').innerHTML = "<p class='order__status order__status--alert'>De bestelling is geweigerd</p>"
-        
-    
-    
+        sendData(status, orderid);
+        order.innerHTML = "<p class='order__status order__status--alert'>De bestelling is geweigerd</p>"
     })
+
 })
 
 const sendData = (status, orderid) =>{
