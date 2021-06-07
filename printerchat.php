@@ -21,6 +21,7 @@ if($user["type"] === "printer"){
     foreach($chatPrinter as $p){
         $send[] = User::getUserById($p["sender_id"]);
     }
+    
 
     
     
@@ -39,6 +40,7 @@ if($user["type"] === "printer"){
         $sender = User::getUserById($userid);
         $chat = Message::getChat($id, $userid);
         
+        $style = "chat__user--background";
         
     }
 
@@ -82,7 +84,7 @@ if($user["type"] === "printer"){
 
     <div class="chat__users">
         <?php foreach($send as $c): ?>
-        <a href="printerchat.php?chat=<?php echo $c["id"] ?>" class="chat__user">
+        <a href="printerchat.php?chat=<?php echo $c["id"] ?>" class="chat__user <?php if($userid == $c["id"]){echo $style; }?>">
             <img class="chat__img" src="images/<?php echo htmlspecialchars($c["avatar"]); ?>" alt="">
             <p class="chat__username"><?php echo htmlspecialchars($c["username"]); ?></p>
         </a>
