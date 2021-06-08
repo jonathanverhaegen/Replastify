@@ -201,7 +201,7 @@ $posts = Post::getAllPosts();
 
         <div class="popup__preview__model">
         <?php if(isset($get)): ?> 
-            <a class="post__model" id='previewModel' href="./models" download="<?php echo $model["id"] ?>"><?php echo htmlspecialchars($model["name"]); ?></a>
+            <a class="post__model" id='previewModel' href="./models/<?php echo $model["id"] ?>" download><?php echo htmlspecialchars($model["name"]); ?></a>
             <input type="text" style="display: none;" name="modelprev" id="modelprev" value="<?php echo $model["3dmodel"]; ?>">
         <?php endif ?>
         </div>
@@ -248,7 +248,7 @@ $posts = Post::getAllPosts();
 
         <div class="popup__preview__model">
         <?php if(isset($get)): ?> 
-            <a class="post__model" id='previewModel' href="./models" download="<?php echo $model["id"] ?>"><?php echo htmlspecialchars($model["name"]); ?></a>
+            <a class="post__model" id='previewModel' href="./models/<?php echo $model["id"] ?>" download><?php echo htmlspecialchars($model["name"]); ?></a>
             <input type="text" style="display: none;" name="modelprev" id="modelprev" value="<?php echo $model["3dmodel"]; ?>">
         <?php endif ?>
         </div>
@@ -311,7 +311,7 @@ $posts = Post::getAllPosts();
 
         <?php if(!empty($p["model"])): ?>
         <div class="post__model__container">
-        <a class="post__model" href="./models" download="<?php echo $p["model"]; ?>">download model</a>
+        <a class="post__model" href="./models/<?php echo $p["model"]; ?>" download>download model</a>
         </div>
         <?php endif; ?>
 
