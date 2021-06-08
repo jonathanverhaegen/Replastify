@@ -96,14 +96,14 @@ if(!empty($_GET)){
     <p class="order__status order__status--detail"><?php echo htmlspecialchars($order["price"])?></p>
     <p class="order__title">Kortingscode</p>
     <div class="korting">
-        <input type="text" class="form__input form__input--order">
-        <a class="btn" href="">Voeg toe</a>
+        <input type="text" id="korting" class="form__input form__input--order">
+        <a class="btn" id="btnDis" href="">Voeg toe</a>
     </div>
     <p class="order__korting">Korting</p>
-    <p class="order__korting" id="amount ">-10%</p>
-    <p class="order__title">Totaal</p>
+    <p class="order__korting amount" id="amount">-10%</p>
+    <p class="order__title" >Totaal</p>
     <div class="order__btns">
-        <p class="order__status order__status--detail" ><?php echo htmlspecialchars($order["price"]) ?></p>
+        <p class="order__status order__status--detail"  id="total" ><?php echo htmlspecialchars($order["price"]) ?></p>
         <a data-orderid="<?php echo $order[0] ?>" class="btn" href="" id="pay">Betaal</a>
     </div>
     </div>

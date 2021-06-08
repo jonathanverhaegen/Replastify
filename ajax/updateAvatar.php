@@ -28,7 +28,7 @@ $id = $_SESSION["id"];
         
         if(in_array($fileActExt, $allowed)){
             if($fileError === 0){
-                if($fileSize < 1000000){
+                if($fileSize < 900000000){
 
                     $fileNameNew = uniqid('', true).".".$fileActExt;
 

@@ -26,3 +26,23 @@ btn.addEventListener('click', (e) => {
         });
 
 })
+
+let btnDis = document.querySelector('#btnDis');
+
+btnDis.addEventListener('click', (e) => {
+    e.preventDefault();
+    const input = document.querySelector('#korting').value;
+    if(input === "kortingscode"){
+        let price = parseInt(document.querySelector('#total').innerHTML);
+        let discound = price * 0.10;
+        let newTotal =  price - discound;
+        document.querySelector('#total').innerHTML = newTotal;
+        document.querySelector('.order__korting').style.display = "block";
+        document.querySelector('.amount').style.display = "block";
+    }else{
+        document.querySelector('#korting').value = "foute kortingscode"
+        document.querySelector('#korting').style.color = "red";
+    }
+    
+
+})
