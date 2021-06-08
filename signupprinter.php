@@ -13,7 +13,7 @@ if(!empty($_POST)){
         $printer->setPassword($_POST["password"]);
         $printer->setPicture("skull.jpg");
 
-        if(!empty($_FILES["avatar"])){
+        if(!empty($_FILES["avatar"]["name"])){
 
         
 
@@ -30,13 +30,13 @@ if(!empty($_POST)){
             
             if(in_array($fileActExt, $allowed)){
                 if($fileError === 0){
-                    if($fileSize < 1000000){
+                    if($fileSize < 10000000){
     
                         $fileNameNew = uniqid('', true).".".$fileActExt;
     
                         $fileDestination = 'images/'.$fileNameNew;
                         move_uploaded_file($fileTmpName, $fileDestination);
-                        $user->setPicture($fileNameNew);
+                        $printer->setPicture($fileNameNew);
     
                     }else{
                         $error = "avatar is to big";
@@ -141,7 +141,7 @@ if(!empty($_POST)){
 
         <div class="form__group form__group--right form__group--printer">
         <label class="form__label" for="housenumber">Huisnummer</label>
-        <input class="form__input" type="text" class="housenumber" name="housenumber">
+        <input class="form__input" type="number" class="housenumber" name="housenumber">
         </div>
 
         <div class="form__group form__group--left">
@@ -151,7 +151,7 @@ if(!empty($_POST)){
 
         <div class="form__group form__group--right">
         <label class="form__label" for="postalcode">Postcode</label>
-        <input class="form__input" type="text" class="postalcode" name="postalcode">
+        <input class="form__input" type="number" class="postalcode" name="postalcode">
         </div>
 
         

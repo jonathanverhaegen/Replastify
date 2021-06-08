@@ -252,6 +252,46 @@ class User{
         
     }
 
+    /**
+     * Get the value of type
+     */ 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of bio
+     */ 
+    public function getBio()
+    {
+        return $this->bio;
+    }
+
+    /**
+     * Set the value of bio
+     *
+     * @return  self
+     */ 
+    public function setBio($bio)
+    {
+        $this->bio = $bio;
+
+        return $this;
+    }
+
     public function register(){
         $options = [
             'cost' => 15
@@ -321,45 +361,7 @@ class User{
         }
     }
 
-    /**
-     * Get the value of type
-     */ 
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set the value of type
-     *
-     * @return  self
-     */ 
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of bio
-     */ 
-    public function getBio()
-    {
-        return $this->bio;
-    }
-
-    /**
-     * Set the value of bio
-     *
-     * @return  self
-     */ 
-    public function setBio($bio)
-    {
-        $this->bio = $bio;
-
-        return $this;
-    }
+    
 
     public static function getUserById($id){
         $conn = Db::getConnection();
